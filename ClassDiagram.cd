@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+﻿[Environment]::SetEnvironmentVariable("Path", "$env:Path;C:\Program Files\Git\cmd\", "User")[Environment]::SetEnvironmentVariable("Path", "$env:Path;C:\Program Files\Git\cmd\", "User")<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Action" Collapsed="true">
     <Position X="2.75" Y="1.25" Width="1.5" />
