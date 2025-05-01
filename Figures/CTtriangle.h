@@ -3,7 +3,7 @@
 class CTriangle :public CFigure
 {
 private:
-	Point Vertex1, Vertex2, Vertex3; //Three points of the triangle
+	Point P1, P2, P3; //Three points of the triangle
 public:
 	CTriangle(Point P1, Point P2, Point P3, GfxInfo FigureGfxInfo);
 	virtual void Draw(Output* pOut) const; //Draws the triangle

@@ -1,16 +1,20 @@
-#pragma once
+
 #pragma once
 #include "CFigure.h"
 
 class CCircle : public CFigure
 {
 private:
+	Point P1;
+	Point P2;
 	Point Center;
 	int Radius;
 public:
-	CCircle(Point P1, int r, GfxInfo FigureGfxInfo);
+	CCircle(Point ,Point, int r, GfxInfo FigureGfxInfo);
 	virtual void Draw(Output* pOut) const;
 	bool IsPointInside(int x, int y) const;
-	void 
+	void
+ Save(ofstream& OutFile);
+void Load(ifstream& Infile);
 };
 

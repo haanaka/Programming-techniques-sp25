@@ -3,7 +3,7 @@
 class AddTriAction : public Action
 {
 private:
-	Point Vertex1, Vertex2, Vertex; 
+	Point P1, P2, P3; 
 	GfxInfo TriGfxInfo;
 public:
 	AddTriAction(ApplicationManager* pApp);

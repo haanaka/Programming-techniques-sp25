@@ -1,10 +1,18 @@
 #include "CHexagon.h"
 #define r3 1.7320508075689
+
+CHexagon::CHexagon(Point  P, GfxInfo FigureGfxInfo) : CFigure(FigureGfxInfo)
+{
+	center = P;
+}
+void CHexagon::Draw(Output* pOut) const
+{
+	pOut->DrawHexagon(center, FigGfxInfo, Selected);
+}
 double abs(double x)
 {
 	return (x < 0) ? -x : x;
 }
-
 
 bool CHexagon::IsPointInside(int x, int y) const
 {
