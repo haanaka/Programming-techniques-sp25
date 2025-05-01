@@ -11,5 +11,6 @@ public:
 	CCircle(Point P1, int r, GfxInfo FigureGfxInfo);
 	virtual void Draw(Output* pOut) const;
 	bool IsPointInside(int x, int y) const;
+	void 
 };
 
