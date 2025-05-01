@@ -69,11 +69,35 @@ CFigure *ApplicationManager::GetFigure(int x, int y) const
 {
 	//If a figure is found return a pointer to it.
 	//if this point (x,y) does not belong to any figure return NULL
-
+	for (int i = 0; i < FigCount; i++)
+	{
+		if (FigList[i]->IsPointInside(x, y))
+			return FigList[i];
+	}
 
 	//Add your code here to search for a figure given a point x,y	
 	//Remember that ApplicationManager only calls functions do NOT implement it.
 
+	return NULL;
+}
+CFigure* ApplicationManager::selectFigure(int x, int y) {
+	for (int i = 0; i < FigCount; i++) {
+		if (FigList[i]->IsPointInside(x, y)) {
+			if (SelectedFig != NULL) {
+				SelectedFig->SetSelected(false);
+				SelectedFig->Draw(pOut); //Deselect the previously selected figure
+			}
+			SelectedFig = FigList[i];
+			SelectedFig->SetSelected(true);
+			SelectedFig->Draw(pOut);
+			return SelectedFig;
+		}
+	}
+	if (SelectedFig != NULL) {
+		SelectedFig->SetSelected(false);
+		SelectedFig->Draw(pOut); 
+		SelectedFig = NULL;
+	}
 	return NULL;
 }
 //==================================================================================//
