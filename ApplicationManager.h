@@ -31,6 +31,7 @@ public:
 	//Reads the input command from the user and returns the corresponding action type
 	ActionType GetUserAction() const;
 	void ExecuteAction(ActionType) ; //Creates an action and executes it
+	void deleteselectedfigure(); //Deletes the selected figure
 	
 	// -- Figures Management Functions
 	void AddFigure(CFigure* pFig);          //Adds a new figure to the FigList
@@ -39,6 +40,7 @@ public:
 	void SetSelectedFigure(CFigure* c);
 	CFigure* selectFigure(int x, int y); //Selects a figure given a point inside the figure
 	CFigure* SelectClipboardFigure(int x, int y);
+	int getSelectedFigureIndex() const; //Returns the index of the selected figure in the FigList
 	// -- Interface Management Functions
 	Input *GetInput() const; //Return pointer to the input
 	Output *GetOutput() const; //Return pointer to the output
