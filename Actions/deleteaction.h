@@ -7,9 +7,9 @@ class deleteaction : public Action
 public:
 	deleteaction(ApplicationManager *pApp);
 
-	virtual void ReadActionParameters();
+	void ReadActionParameters();
 
-	virtual void Execute();
+	void Execute();
 
 
 }

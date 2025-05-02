@@ -3,6 +3,7 @@
 #include "Actions\SelectAction.h"
 #include "Actions\ActionCopyOrCut.h"
 #include "Actions\AddTriAction.h"
+#include "Actions\deleteaction.h"
 //Constructor
 ApplicationManager::ApplicationManager()
 {
@@ -69,6 +70,20 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		pAct->Execute();//Execute
 		delete pAct;	//You may need to change this line depending to your implementation
 		pAct = NULL;
+	}
+}
+void ApplicationManager::deleteselectedfigure()
+{
+	int index = getSelectedFigureIndex();
+	if (index != -1) {
+		SelectedFig = NULL; 
+		for (int i = index; i < FigCount; i++) {
+			FigList[i] = FigList[i + 1];
+			delete FigList[FigCount];
+			FigList[FigCount] = NULL;
+			FigCount--;
+
+		}
 	}
 }
 //==================================================================================//
@@ -141,6 +156,14 @@ CFigure* ApplicationManager::SelectClipboardFigure(int x, int y) {
 		Clipboard = NULL;
 	}
 	return NULL;
+}
+int ApplicationManager::getSelectedFigureIndex() const
+{
+	for (int i = 0; i < FigCount; i++) {
+		if (FigList[i] == SelectedFig) {
+			return i;
+		}
+	}
 }
 // It returns a pointer to the selected figure
 //==================================================================================//
