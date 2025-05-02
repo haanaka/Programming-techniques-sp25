@@ -97,7 +97,7 @@ void Input::CheckFilled(Output* P, GfxInfo& GfxInfo) const
 }
 void Input::CheckColor(Output* P, GfxInfo& GfxInfo) const
 {
-	P->PrintMessage("Please enter the color you want to use: ");
+	P->PrintMessage("Please enter the color you want to use for sides: ");
 	string color = GetString(P);
 	toLowerCase(color);
 	if (color == "red")

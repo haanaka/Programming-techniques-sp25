@@ -14,3 +14,17 @@ bool CSquare::IsPointInside(int x, int y) const
 	return(x >= Center.x - 37.5 &&x <= Center.x + 37.5 &&y >= Center.y - 37.5 &&y <= Center.y + 37.5) ;
 
 }
+Point CSquare::getCenter(Point& center) const {
+	center.x = Center.x;
+	center.y = Center.y;
+	return center;
+}
+void CSquare::MoveTo(Point destination) {
+	Point Center;
+	Center.x = this->Center.x;
+	Center.y = this->Center.y;
+	int dx = destination.x - Center.x;
+	int dy = destination.y - Center.y;
+	this->Center.x += dx;
+	this->Center.y += dy;
+}

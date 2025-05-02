@@ -3,7 +3,7 @@
 #include "..\GUI\Input.h"
 #include "..\GUI\Output.h"
 #include "../Figures/CTtriangle.h"
-AddTriAction::AddTriAction(ApplicationManager* pApp) :Action(pApp)
+AddTriAction::AddTriAction(ApplicationManager* pApp) :Action(pApp), P1(), P2(), P3()
 {
 }
 void AddTriAction::ReadActionParameters()
@@ -22,7 +22,9 @@ void AddTriAction::ReadActionParameters()
 	pIn->GetPointClicked(P3.x, P3.y);
 	TriGfxInfo.isFilled = false;
 	TriGfxInfo.DrawClr = pOut->getCrntDrawColor();
+	pIn->CheckColor(pOut, TriGfxInfo);
 	TriGfxInfo.FillClr = pOut->getCrntFillColor();
+	pIn->CheckFilled(pOut, TriGfxInfo);
 	pOut->ClearStatusBar();
 
 }

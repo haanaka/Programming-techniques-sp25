@@ -3,6 +3,10 @@
 #include "Actions\SelectAction.h"
 #include "Actions\ActionCopyOrCut.h"
 #include "Actions\AddTriAction.h"
+#include "Actions\AddSquAction.h"
+#include "Actions\AddCircAction.h"
+#include "Actions\AddHexaAction.h"
+#include "Actions\AddSwapAction.h"
 //Constructor
 ApplicationManager::ApplicationManager()
 {
@@ -45,7 +49,18 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case DRAW_TRI:
 			pAct = new AddTriAction(this);
 			break;
-
+		case DRAW_SQR:
+			pAct = new AddSquAction(this);
+			break;
+		case DRAW_CIRCLE:
+			pAct = new AddCircAction(this);
+			break;
+		case DRAW_HEXA:
+			pAct = new AddHexaAction(this);
+			break;
+		case SWAP:
+			pAct = new AddSwapAction(this);
+			break;
 		case EXIT:
 			///create ExitAction here
 			

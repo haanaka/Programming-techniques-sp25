@@ -129,6 +129,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ActionCopyOrCut.cpp" />
+    <ClCompile Include="Actions\AddCircAction.cpp" />
+    <ClCompile Include="Actions\AddHexaAction.cpp" />
+    <ClCompile Include="Actions\AddSquAction.cpp" />
+    <ClCompile Include="Actions\AddSwapAction.cpp" />
     <ClCompile Include="Actions\AddTriAction.cpp" />
     <ClCompile Include="Actions\SelectAction.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp" />
@@ -181,6 +185,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actions\ActionCopyOrCut.h" />
+    <ClInclude Include="Actions\AddCircAction.h" />
+    <ClInclude Include="Actions\AddHexaAction.h" />
+    <ClInclude Include="Actions\AddSquAction.h" />
+    <ClInclude Include="Actions\AddSwapAction.h" />
     <ClInclude Include="Actions\AddTriAction.h" />
     <ClInclude Include="Actions\SelectAction.h" />
     <ClInclude Include="CMUgraphicsLib\auxil.h" />

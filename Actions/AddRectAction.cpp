@@ -6,7 +6,7 @@
 #include "..\GUI\input.h"
 #include "..\GUI\Output.h"
 
-AddRectAction::AddRectAction(ApplicationManager * pApp):Action(pApp)
+AddRectAction::AddRectAction(ApplicationManager* pApp) :Action(pApp), P1(), P2() 
 {}
 
 void AddRectAction::ReadActionParameters() 
@@ -28,8 +28,9 @@ void AddRectAction::ReadActionParameters()
 	RectGfxInfo.isFilled = false;	//default is not filled
 	//get drawing, filling colors and pen width from the interface
 	RectGfxInfo.DrawClr = pOut->getCrntDrawColor();
+	pIn->CheckColor(pOut, RectGfxInfo);
 	RectGfxInfo.FillClr = pOut->getCrntFillColor();
-
+	pIn->CheckFilled(pOut, RectGfxInfo);
 	pOut->ClearStatusBar();
 
 }

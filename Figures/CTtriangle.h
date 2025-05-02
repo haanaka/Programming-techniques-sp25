@@ -10,7 +10,8 @@ public:
 	 bool IsPointInside(int x, int y) const; //Checks if a point is inside the triangle
 	 void Save(ofstream& OutFile); //Saves the triangle info to a file
 	 void Load(ifstream& Infile); //Loads the triangle info from a file
-
+	 Point getCenter(Point& center) const; 
+	 void MoveTo(Point destination);
 };
 
 

@@ -12,6 +12,9 @@ public:
 	CRectangle(Point , Point, GfxInfo FigureGfxInfo );
 	virtual void Draw(Output* pOut) const;
 	virtual bool IsPointInside(int x, int y) const;
+	Point getCenter(Point& center) const;
+	void MoveTo(Point destination);
+
 };
 
 #endif

@@ -9,6 +9,8 @@ public:
 	CSquare(Point P1, GfxInfo FigureGfxInfo);
 	virtual void Draw(Output* pOut) const;
 	bool IsPointInside(int x, int y) const;
+	void MoveTo(Point destination);
+	Point getCenter(Point& center) const;
 };
 
 
