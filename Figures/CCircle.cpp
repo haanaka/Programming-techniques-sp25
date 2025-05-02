@@ -19,3 +19,4 @@ bool CCircle::IsPointInside(int x, int y) const
 	int dy = y - Center.y;
 	return (dx * dx + dy * dy <= Radius * Radius);
 }
+

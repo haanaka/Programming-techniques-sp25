@@ -1,4 +1,4 @@
-#include"AddTriAction.h"
+/*#include"AddTriAction.h"
 #include "..\ApplicationManager.h"
 #include "..\GUI\Input.h"
 #include "..\GUI\Output.h"
@@ -25,4 +25,4 @@ void AddTriAction::ReadActionParameters()
 	TriGfxInfo.FillClr = pOut->getCrntFillColor();
 	pOut->ClearStatusBar();
 
-}
+}*/

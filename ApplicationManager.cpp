@@ -1,14 +1,15 @@
 #include "ApplicationManager.h"
 #include "Actions\AddRectAction.h"
-
-
+#include "Actions\SelectAction.h"
+#include "Actions\ActionCopyOrCut.h"
 //Constructor
 ApplicationManager::ApplicationManager()
 {
 	//Create Input and output
 	pOut = new Output;
 	pIn = pOut->CreateInput();
-	
+	SelectedFig = NULL;
+	Clipboard = NULL;
 	FigCount = 0;
 		
 	//Create an array of figure pointers and set them to NULL		
@@ -16,6 +17,10 @@ ApplicationManager::ApplicationManager()
 		FigList[i] = NULL;	
 }
 
+int ApplicationManager::GetFigCount() const
+{
+	return FigCount;
+}
 //==================================================================================//
 //								Actions Related Functions							//
 //==================================================================================//
@@ -41,7 +46,15 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			///create ExitAction here
 			
 			break;
-		
+		case SELECT:
+			pAct = new SelectAction(this);
+			break;
+		case COPY:
+			pAct = new ActionCopyOrCut(this,true);
+			break;
+		case CUT:
+			pAct = new ActionCopyOrCut(this, false);
+			break;
 		case STATUS:	//a click on the status bar ==> no action
 			return;
 	}
@@ -80,6 +93,10 @@ CFigure *ApplicationManager::GetFigure(int x, int y) const
 
 	return NULL;
 }
+CFigure* ApplicationManager::getSelectedFigure() {
+	return SelectedFig;
+}
+void ApplicationManager::SetSelectedFigure(CFigure* c) { SelectedFig = c; }
 CFigure* ApplicationManager::selectFigure(int x, int y) {
 	for (int i = 0; i < FigCount; i++) {
 		if (FigList[i]->IsPointInside(x, y)) {
@@ -100,6 +117,28 @@ CFigure* ApplicationManager::selectFigure(int x, int y) {
 	}
 	return NULL;
 }
+CFigure* ApplicationManager::SelectClipboardFigure(int x, int y) {
+	// Check if the point (x, y) is inside the selected figure
+	for (int i = 0; i < FigCount; i++) {
+		if (FigList[i]->IsPointInside(x, y)) {
+			if (Clipboard != NULL) {
+				Clipboard->SetSelected(false);
+				Clipboard->Draw(pOut); //Deselect the previously selected figure
+			}
+			Clipboard = FigList[i];
+			Clipboard->SetSelected(true);
+			Clipboard->Draw(pOut);
+			return Clipboard;
+		}
+	}
+	if (Clipboard != NULL) {
+		Clipboard->SetSelected(false);
+		Clipboard->Draw(pOut);
+		Clipboard = NULL;
+	}
+	return NULL;
+}
+// It returns a pointer to the selected figure
 //==================================================================================//
 //							Interface Management Functions							//
 //==================================================================================//
