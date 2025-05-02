@@ -1,4 +1,4 @@
-/*#include"AddTriAction.h"
+#include"AddTriAction.h"
 #include "..\ApplicationManager.h"
 #include "..\GUI\Input.h"
 #include "..\GUI\Output.h"
@@ -25,4 +25,10 @@ void AddTriAction::ReadActionParameters()
 	TriGfxInfo.FillClr = pOut->getCrntFillColor();
 	pOut->ClearStatusBar();
 
-}*/
+}
+void AddTriAction::Execute()
+{
+	ReadActionParameters();
+	CTriangle* T = new CTriangle(P1, P2, P3, TriGfxInfo);
+	pManager->AddFigure(T);
+}

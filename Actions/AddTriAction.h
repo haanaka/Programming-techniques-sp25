@@ -1,4 +1,4 @@
-/*#pragma once
+#pragma once
 #include"Action.h"
 class AddTriAction : public Action
 {
@@ -9,4 +9,4 @@ public:
 	AddTriAction(ApplicationManager* pApp);
 	virtual void ReadActionParameters();
 	virtual void Execute();
-};*/
+};
