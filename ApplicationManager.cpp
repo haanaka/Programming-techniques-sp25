@@ -104,6 +104,10 @@ CFigure* ApplicationManager::selectFigure(int x, int y) {
 				SelectedFig->SetSelected(false);
 				SelectedFig->Draw(pOut); //Deselect the previously selected figure
 			}
+			if (Clipboard != NULL) {
+				Clipboard->SetSelected(false);
+				Clipboard->Draw(pOut); //Deselect the previously selected figure
+			}
 			SelectedFig = FigList[i];
 			SelectedFig->SetSelected(true);
 			SelectedFig->Draw(pOut);
