@@ -72,9 +72,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case ROTATE:
 			pAct = new Rotate(this);
 			break;
-
 		case EXIT:
 			///create ExitAction here
+			break;
 		case PASTE:
 			pAct = new ActionPaste(this);
 			break;

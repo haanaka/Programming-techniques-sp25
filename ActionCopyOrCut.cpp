@@ -11,6 +11,7 @@ ActionCopyOrCut::ActionCopyOrCut(ApplicationManager* pApp,bool CopyOrCut) : Acti
 
 void ActionCopyOrCut::Execute()
 {
+
 	Output* pOut = pManager->GetOutput();
 	Input* pIn = pManager->GetInput();
 	if (copyorcut)
@@ -21,8 +22,10 @@ void ActionCopyOrCut::Execute()
 	pIn->GetPointClicked(x, y);
 	Clipboard = pManager->SelectClipboardFigure(x, y);
 	if (Clipboard != NULL) {
+		if (pManager->getSelectedFigure() != nullptr) {
 		pManager->getSelectedFigure()->SetSelected(false);
 		pManager->getSelectedFigure()->Draw(pOut);
+		}
 		Clipboard->SetSelected(true);
 	}
 	else {
