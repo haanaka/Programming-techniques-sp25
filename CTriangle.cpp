@@ -1,4 +1,5 @@
-
+#include "ApplicationManager.h"
+#include "GUI/Output.h"
 #include "Figures/CTtriangle.h"
 CTriangle::CTriangle(Point Point1, Point Point2, Point Point3, GfxInfo FigureGfxInfo) : CFigure(FigureGfxInfo)
 {
@@ -37,4 +38,23 @@ void CTriangle::MoveTo(Point destination) {
 	P2.y += dy;
 	P3.x += dx;
 	P3.y += dy;
+}
+static Point RotatePoint90(const Point& P, const Point& C)
+{
+	Point R;
+	R.x = C.x + (P.y - C.y);
+	R.y = C.y - (P.x - C.x);
+	return R;
+}
+
+bool CTriangle::Rotation()
+{
+	Point C;
+	C.x = (P1.x + P2.x + P3.x) / 3;
+	C.y = (P1.y + P2.y + P3.y) / 3;
+
+	P1 = RotatePoint90(P1, C);
+	P2 = RotatePoint90(P2, C);
+	P3 = RotatePoint90(P3, C);
+	return true;
 }

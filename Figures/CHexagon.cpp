@@ -1,4 +1,7 @@
+
 #include "CHexagon.h"
+#include "../ApplicationManager.h"
+#include "../GUI/Output.h"
 #define r3 1.7320508075689
 
 CHexagon::CHexagon(Point  P, GfxInfo FigureGfxInfo) : CFigure(FigureGfxInfo)
@@ -26,4 +29,8 @@ bool CHexagon::IsPointInside(int x, int y) const
         return false;
 
     return true;
+}
+bool CHexagon::Rotation()
+{
+    return false;
 }

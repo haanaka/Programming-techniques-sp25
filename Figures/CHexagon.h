@@ -10,6 +10,5 @@ public:
 	bool IsPointInside(int x, int y) const; // Checks if a point is inside the hexagon
 	void Save(ofstream& OutFile); // Saves the hexagon info to a file
 	void Load(ifstream& Infile); // Loads the hexagon info from a file
+	bool Rotation(); //Function belonging to the rotate class
 };
-
-

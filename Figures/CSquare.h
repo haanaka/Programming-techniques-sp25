@@ -11,6 +11,7 @@ public:
 	bool IsPointInside(int x, int y) const;
 	void MoveTo(Point destination);
 	Point getCenter(Point& center) const;
+	bool Rotation(); //Function belonging to the rotate class
 };
 
 

@@ -1,4 +1,6 @@
 #include "CRectangle.h"
+#include "../ApplicationManager.h"
+#include "../GUI/Output.h"
 
 CRectangle::CRectangle(Point P1, Point P2, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)
 {
@@ -39,4 +41,19 @@ void CRectangle::MoveTo(Point destination) {
 	Corner1.y += dy;
 	Corner2.x += dx;
 	Corner2.y += dy;
+}
+bool CRectangle::Rotation()
+{
+	Point M; //point M will be the middle of the selected figure
+	M.y = (Corner1.y + Corner2.y) / 2; //since rectangle is symetrical you get the y coordinate of the middle point by dividing the sum of 2 CORNERS that are on the same VERTICAL LINE by 2
+	M.x = (Corner1.x + Corner2.x) / 2; //same is done with the x coordinate
+	//an easier way to get the coordinates of the middle point was to sum all the coordinates and divided them by them by 4 but i am using the data members corners that my friend already declared in rectangel.h
+	int sidelx = Corner2.x - Corner1.x;
+	int sidely = Corner2.y - Corner1.y;
+	//simple function to get new coordinates for rotated figure
+	Corner1.x = (M.x - sidely) / 2;
+	Corner1.y = (M.y + sidelx) / 2;
+	Corner2.x = (M.x + sidely) / 2;
+	Corner2.y = (M.y - sidelx) / 2;
+	return true;
 }

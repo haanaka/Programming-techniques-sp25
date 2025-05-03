@@ -1,4 +1,5 @@
-
+#include "../ApplicationManager.h"
+#include "../GUI/Output.h"
 #include "CSquare.h"
 #define r2  1.4142135623731
 CSquare::CSquare(Point P1, GfxInfo FigureGfxInfo) : CFigure(FigureGfxInfo)
@@ -27,4 +28,8 @@ void CSquare::MoveTo(Point destination) {
 	int dy = destination.y - Center.y;
 	this->Center.x += dx;
 	this->Center.y += dy;
+}
+bool CSquare::Rotation()
+{
+	return false;
 }

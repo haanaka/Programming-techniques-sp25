@@ -8,6 +8,7 @@
 #include "Actions\AddHexaAction.h"
 #include "Actions\AddSwapAction.h"
 #include "Actions\deleteaction.h"
+#include "Rotate.h"
 //Constructor
 ApplicationManager::ApplicationManager()
 {
@@ -61,6 +62,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case SWAP:
 			pAct = new AddSwapAction(this);
+			break;
+		case ROTATE:
+			pAct = new Rotate(this);
 			break;
 
 		case EXIT:

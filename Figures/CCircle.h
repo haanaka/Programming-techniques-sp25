@@ -16,6 +16,7 @@ public:
 	void Save(ofstream& OutFile);
 	void MoveTo(Point destination);
 	Point getCenter(Point& center) const;
-void Load(ifstream& Infile);
+	void Load(ifstream& Infile);
+	bool Rotation(); //Function belonging to the rotate class
 };
 
