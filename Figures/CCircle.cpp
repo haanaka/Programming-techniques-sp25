@@ -25,3 +25,34 @@ bool CCircle::Rotation()
 {
 	return false;
 }
+Point CCircle::getCenter(Point& center) const
+{
+	center.x = Center.x;
+	center.y = Center.y;
+	return center;
+}
+void CCircle::MoveTo(Point destination)
+{
+	Point Center;
+	Center.x = this->Center.x;
+	Center.y = this->Center.y;
+	int dx = destination.x - Center.x;
+	int dy = destination.y - Center.y;
+	this->Center.x += dx;
+	this->Center.y += dy;
+}
+void CCircle::shiftTo(int x, int y)
+{
+	// Shift the circle to a new position
+	int dx = x - Center.x;
+	int dy = y - Center.y;
+	P1.x += dx;
+	P1.y += dy;
+	P2.x += dx;
+	P2.y += dy;
+	Center.x += dx;
+	Center.y += dy;
+}
+int CCircle::getType() {
+	return 1; // 1 for circle
+}

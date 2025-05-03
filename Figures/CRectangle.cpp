@@ -42,6 +42,20 @@ void CRectangle::MoveTo(Point destination) {
 	Corner2.x += dx;
 	Corner2.y += dy;
 }
+void CRectangle::shiftTo(int x, int y)
+{
+	// Shift the rectangle to a new position
+	int dx = x - Corner1.x;
+	int dy = y - Corner1.y;
+	Corner1.x += dx;
+	Corner1.y += dy;
+	Corner2.x += dx;
+	Corner2.y += dy;
+}
+int CRectangle::getType() {
+	return 5; // 5 for rectangle
+}
+}
 bool CRectangle::Rotation()
 {
 	Point M; //point M will be the middle of the selected figure

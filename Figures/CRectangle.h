@@ -14,6 +14,11 @@ public:
 	virtual bool IsPointInside(int x, int y) const;
 	Point getCenter(Point& center) const;
 	void MoveTo(Point destination);
+
+	void shiftTo(int x, int y);
+
+	int getType();
+
 	bool Rotation(); //Function belonging to the rotate class
 };
 #endif

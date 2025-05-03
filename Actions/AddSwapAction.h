@@ -10,6 +10,7 @@ public:
 	AddSwapAction(ApplicationManager* pApp);
 	virtual void ReadActionParameters();
 	virtual void Execute();
+	~AddSwapAction();
 
 };
 

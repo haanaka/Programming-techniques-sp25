@@ -8,6 +8,8 @@
 #include "Actions\AddHexaAction.h"
 #include "Actions\AddSwapAction.h"
 #include "Actions\deleteaction.h"
+/*#include "../../../source/repos/Programming-techniques-sp25/ApplicationManager.h"*/
+
 #include "Rotate.h"
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -18,7 +20,7 @@ ApplicationManager::ApplicationManager()
 	SelectedFig = NULL;
 	Clipboard = NULL;
 	FigCount = 0;
-		
+	copyorCut = true;
 	//Create an array of figure pointers and set them to NULL		
 	for(int i=0; i<MaxFigCount; i++)
 		FigList[i] = NULL;	
@@ -63,6 +65,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case SWAP:
 			pAct = new AddSwapAction(this);
 			break;
+		case dELETE:
+			pAct = new dELETEAction(this);
+			break;
 		case ROTATE:
 			pAct = new Rotate(this);
 			break;
@@ -75,9 +80,11 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new SelectAction(this);
 			break;
 		case COPY:
+			copyorCut = true;
 			pAct = new ActionCopyOrCut(this,true);
 			break;
 		case CUT:
+			copyorCut = false;
 			pAct = new ActionCopyOrCut(this, false);
 			break;
 		case STATUS:	//a click on the status bar ==> no action
@@ -103,6 +110,32 @@ void ApplicationManager::deleteselectedfigure()
 			FigList[FigCount] = NULL;
 			FigCount--;
 
+		}
+	}
+}
+void ApplicationManager::deleteClipboard() {
+	int index = GetClipboardIndex();
+	if (index != -1) {
+		Clipboard = NULL;
+		for (int i = index; i < FigCount; i++) {
+			FigList[i] = FigList[i + 1];
+			delete FigList[FigCount];
+			FigList[FigCount] = NULL;
+			FigCount--;
+		}
+	}
+}
+
+void ApplicationManager::clearallfigure()
+{
+	int index = getSelectedFigureIndex();
+	if (index != -1) {
+		SelectedFig = NULL;
+		for (int i = index; i < FigCount; i++) {
+			FigList[i] = FigList[i + 1];
+			delete FigList[FigCount];
+			FigList[FigCount] = NULL;
+			FigCount--;
 		}
 	}
 }
@@ -135,34 +168,66 @@ CFigure *ApplicationManager::GetFigure(int x, int y) const
 CFigure* ApplicationManager::getSelectedFigure() {
 	return SelectedFig;
 }
+bool ApplicationManager::getCopyOrCut() {
+	return copyorCut;
+}
+CFigure* ApplicationManager::GetClipboard() {
+	return Clipboard;
+}
 void ApplicationManager::SetSelectedFigure(CFigure* c) { SelectedFig = c; }
 CFigure* ApplicationManager::selectFigure(int x, int y) {
+
+	int numCIR = 0, numRECT = 0, numSQ = 0, numTRI = 0, numHEX = 0;
 	for (int i = 0; i < FigCount; i++) {
-		if (FigList[i]->IsPointInside(x, y)) {
-			if (SelectedFig != NULL) {
-				SelectedFig->SetSelected(false);
-				SelectedFig->Draw(pOut); //Deselect the previously selected figure
+		if (FigList[i] != nullptr && FigList[i]->IsPointInside(x, y)) {
+			switch (FigList[i]->getType()) {
+			case 1: numCIR++; break;
+			case 2: numTRI++; break;
+			case 3: numHEX++; break;
+			case 4: numSQ++; break;
+			case 5: numRECT++; break;
 			}
-			if (Clipboard != NULL) {
-				Clipboard->SetSelected(false);
-				Clipboard->Draw(pOut); //Deselect the previously selected figure
-			}
+		}
+	}
+
+	if (SelectedFig != nullptr) {
+		SelectedFig->SetSelected(false);
+		SelectedFig->Draw(pOut);
+	}
+	if (Clipboard != nullptr) {
+		Clipboard->SetSelected(false);
+		Clipboard->Draw(pOut);
+	}
+
+	for (int i = FigCount - 1; i >= 0; i--) {
+		if (FigList[i] != nullptr && FigList[i]->IsPointInside(x, y)) {
 			SelectedFig = FigList[i];
 			SelectedFig->SetSelected(true);
 			SelectedFig->Draw(pOut);
+
+			GetOutput()->PrintMessage(
+				"Selected: " + std::to_string(numCIR) + " Circles, " +
+				std::to_string(numTRI) + " Triangles, " +
+				std::to_string(numHEX) + " Hexagons, " +
+				std::to_string(numSQ) + " Squares, " +
+				std::to_string(numRECT) + " Rectangles."
+			);
+			int X, Y; GetInput()->GetPointClicked(X, Y);
 			return SelectedFig;
 		}
 	}
-	if (SelectedFig != NULL) {
+
+	// If clicked on empty space, clear selection
+	if (SelectedFig != nullptr) {
 		SelectedFig->SetSelected(false);
-		SelectedFig->Draw(pOut); 
-		SelectedFig = NULL;
+		SelectedFig->Draw(pOut);
+		SelectedFig = nullptr;
 	}
-	return NULL;
+	return nullptr;
 }
 CFigure* ApplicationManager::SelectClipboardFigure(int x, int y) {
 	// Check if the point (x, y) is inside the selected figure
-	for (int i = 0; i < FigCount; i++) {
+	for (int i = FigCount-1; i >=0; i--) {
 		if (FigList[i]->IsPointInside(x, y)) {
 			if (Clipboard != NULL) {
 				Clipboard->SetSelected(false);
@@ -185,6 +250,15 @@ int ApplicationManager::getSelectedFigureIndex() const
 {
 	for (int i = 0; i < FigCount; i++) {
 		if (FigList[i] == SelectedFig) {
+			return i;
+		}
+	}
+}
+
+int ApplicationManager::GetClipboardIndex() const
+{
+	for (int i = 0; i < FigCount; i++) {
+		if (FigList[i] == Clipboard) {
 			return i;
 		}
 	}

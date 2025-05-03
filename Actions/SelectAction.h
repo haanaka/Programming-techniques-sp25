@@ -6,7 +6,7 @@
 class SelectAction : public Action
 {
 private:
-	CFigure * SelectedFig; // Pointer to the currently selected figure
+	CFigure* SelectedFig; // Pointer to the currently selected figure
 public:
 	SelectAction(ApplicationManager* pApp);
 	virtual void ReadActionParameters();

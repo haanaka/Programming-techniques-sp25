@@ -12,6 +12,8 @@ public:
 	 void Load(ifstream& Infile); //Loads the triangle info from a file
 	 Point getCenter(Point& center) const; 
 	 void MoveTo(Point destination);
+	 void shiftTo(int x, int y);
+	 int getType();
 	 bool Rotation(); //Function belonging to the rotate class
 };
 

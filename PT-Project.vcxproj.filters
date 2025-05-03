@@ -163,8 +163,6 @@
     <ClCompile Include="Actions\AddTriAction.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
-    <ClCompile Include="ActionCopyOrCut.cpp" />
-    <ClCompile Include="Actions\SelectAction.cpp" />
     <ClCompile Include="Actions\AddSquAction.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
@@ -175,6 +173,15 @@
       <Filter>Action Classes</Filter>
     </ClCompile>
     <ClCompile Include="Actions\AddSwapAction.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionCopyOrCut.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\ActionPaste.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\SelectAction.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
     <ClCompile Include="Rotate.cpp">
@@ -282,8 +289,6 @@
     <ClInclude Include="Actions\AddTriAction.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
-    <ClInclude Include="Actions\ActionCopyOrCut.h" />
-    <ClInclude Include="Actions\SelectAction.h" />
     <ClInclude Include="Actions\AddSquAction.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
@@ -294,6 +299,15 @@
       <Filter>Action Classes</Filter>
     </ClInclude>
     <ClInclude Include="Actions\AddSwapAction.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionCopyOrCut.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionPaste.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\SelectAction.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
     <ClInclude Include="Rotate.h">

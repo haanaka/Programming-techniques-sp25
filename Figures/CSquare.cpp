@@ -29,6 +29,20 @@ void CSquare::MoveTo(Point destination) {
 	this->Center.x += dx;
 	this->Center.y += dy;
 }
+void CSquare::shiftTo(int x, int y)
+{
+	Point Center;
+	Center.x = this->Center.x;
+	Center.y = this->Center.y;
+	int dx = x - Center.x;
+	int dy = y - Center.y;
+	this->Center.x += dx;
+	this->Center.y += dy;
+}
+int CSquare::getType() {
+	return 4; // 4 for square
+}
+}
 bool CSquare::Rotation()
 {
 	return false;

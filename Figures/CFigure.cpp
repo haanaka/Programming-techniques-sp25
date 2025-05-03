@@ -22,4 +22,4 @@ void CFigure::ChngFillClr(color Fclr)
 	FigGfxInfo.isFilled = true;
 	FigGfxInfo.FillClr = Fclr; 
 }
-
+int CFigure::getType() { return 0; }
