@@ -62,6 +62,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case SWAP:
 			pAct = new AddSwapAction(this);
 			break;
+		case dELETE:
+			pAct = new dELETEAction(this);
+			break;
 
 		case EXIT:
 			///create ExitAction here
@@ -99,6 +102,19 @@ void ApplicationManager::deleteselectedfigure()
 			FigList[FigCount] = NULL;
 			FigCount--;
 
+		}
+	}
+}
+void ApplicationManager::clearallfigure()
+{
+	int index = getSelectedFigureIndex();
+	if (index != -1) {
+		SelectedFig = NULL;
+		for (int i = index; i < FigCount; i++) {
+			FigList[i] = FigList[i + 1];
+			delete FigList[FigCount];
+			FigList[FigCount] = NULL;
+			FigCount--;
 		}
 	}
 }

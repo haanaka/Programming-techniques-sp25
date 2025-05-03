@@ -1,17 +1,17 @@
-#ifndef deleteaction_h
-#define deleteaction_h
+#ifndef dELETEAction_h
+#define dELETEAction_h
+#pragma once
 #include "Action.h"
 
-class deleteaction : public Action
+class dELETEAction : public Action
 {
 public:
-	deleteaction(ApplicationManager *pApp);
+	dELETEAction(ApplicationManager* pApp);
 
-	void ReadActionParameters();
+	virtual void ReadActionParameters();
 
-	void Execute();
+	virtual void Execute();
 
+};
 
-}
-
-#endif // !delete_h
+#endif 

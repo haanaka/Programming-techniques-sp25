@@ -1,28 +1,27 @@
-#include "deleteaction.h"
+#include "dELETEAction.h"
 #include "..\ApplicationManager.h"
 #include "..\GUI\input.h"
 #include "..\GUI\Output.h"
 
-deleteaction::deleteaction(ApplicationManager* pApp) : Action(pApp)
+dELETEAction::dELETEAction(ApplicationManager* pApp) : Action(pApp)
 {
 	
 }
 
-void deleteaction::ReadActionParameters()
+void dELETEAction::ReadActionParameters()
 {
 
 }
 
-void deleteaction::Execute()
+void dELETEAction::Execute()
 {
 	Output* pOut = pManager->GetOutput();
 
-	if (pManager->getSelectedFigure() {
+	if (pManager->getSelectedFigure()){
 		pOut->PrintMessage("Figure Deleted");
 		pManager->deleteselectedfigure();
 	}
 	else
-	{
 		pOut->PrintMessage("No figure selected");
-	}
+	
 }
