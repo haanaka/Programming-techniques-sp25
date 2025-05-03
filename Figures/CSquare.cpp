@@ -1,4 +1,5 @@
-
+#include "../ApplicationManager.h"
+#include "../GUI/Output.h"
 #include "CSquare.h"
 #define r2  1.4142135623731
 CSquare::CSquare(Point P1, GfxInfo FigureGfxInfo) : CFigure(FigureGfxInfo)
@@ -40,4 +41,9 @@ void CSquare::shiftTo(int x, int y)
 }
 int CSquare::getType() {
 	return 4; // 4 for square
+}
+}
+bool CSquare::Rotation()
+{
+	return false;
 }

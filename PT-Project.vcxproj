@@ -185,6 +185,7 @@
     <ClCompile Include="ApplicationManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Actions\SAVE.cpp" />
+    <ClCompile Include="Rotate.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actions\ActionCopyOrCut.h" />
@@ -230,6 +231,7 @@
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="Actions\SAVE.h" />
+    <ClInclude Include="Rotate.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

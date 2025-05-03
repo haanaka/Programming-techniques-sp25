@@ -1,4 +1,7 @@
+
 #include "CHexagon.h"
+#include "../ApplicationManager.h"
+#include "../GUI/Output.h"
 #define r3 1.7320508075689
 
 CHexagon::CHexagon(Point  P, GfxInfo FigureGfxInfo) : CFigure(FigureGfxInfo)
@@ -51,4 +54,9 @@ void CHexagon::shiftTo(int x, int y)
 }
 int CHexagon::getType() {
 	return 3; // 3 for hexagon
+}
+}
+bool CHexagon::Rotation()
+{
+    return false;
 }

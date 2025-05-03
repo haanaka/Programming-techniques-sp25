@@ -18,3 +18,5 @@ public:
 };
 
 
+	bool Rotation(); //Function belonging to the rotate class
+};

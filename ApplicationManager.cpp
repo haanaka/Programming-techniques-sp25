@@ -10,6 +10,8 @@
 #include "Actions\deleteaction.h"
 /*#include "../../../source/repos/Programming-techniques-sp25/ApplicationManager.h"*/
 
+#include "Rotate.h"
+//Constructor
 ApplicationManager::ApplicationManager()
 {
 	//Create Input and output
@@ -65,6 +67,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case dELETE:
 			pAct = new dELETEAction(this);
+			break;
+		case ROTATE:
+			pAct = new Rotate(this);
 			break;
 
 		case EXIT:

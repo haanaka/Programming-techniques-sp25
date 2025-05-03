@@ -18,6 +18,7 @@ public:
 	void shiftTo(int x, int y);
 	int getType();
 	Point getCenter(Point& center) const;
-void Load(ifstream& Infile);
+	void Load(ifstream& Infile);
+	bool Rotation(); //Function belonging to the rotate class
 };
 
