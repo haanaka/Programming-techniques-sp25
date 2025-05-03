@@ -129,6 +129,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ActionCopyOrCut.cpp" />
+    <ClCompile Include="Actions\ActionPaste.cpp" />
     <ClCompile Include="Actions\AddCircAction.cpp" />
     <ClCompile Include="Actions\AddHexaAction.cpp" />
     <ClCompile Include="Actions\AddSquAction.cpp" />
@@ -185,6 +186,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actions\ActionCopyOrCut.h" />
+    <ClInclude Include="Actions\ActionPaste.h" />
     <ClInclude Include="Actions\AddCircAction.h" />
     <ClInclude Include="Actions\AddHexaAction.h" />
     <ClInclude Include="Actions\AddSquAction.h" />

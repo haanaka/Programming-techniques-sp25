@@ -44,3 +44,10 @@ void CHexagon::MoveTo(Point destination)
 	this->Center.y += dy;
 
 }
+void CHexagon::shiftTo(int x, int y)
+{
+	center.x = x;
+	center.y = y;
+}
+int CHexagon::getType() {
+	return 3; // 3 for hexagon

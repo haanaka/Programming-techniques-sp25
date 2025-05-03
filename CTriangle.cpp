@@ -38,3 +38,16 @@ void CTriangle::MoveTo(Point destination) {
 	P3.x += dx;
 	P3.y += dy;
 }
+void CTriangle::shiftTo(int x, int y) {
+	Point Center;
+	Center.x = (P1.x + P2.x + P3.x) / 3;
+	Center.y = (P1.y + P2.y + P3.y) / 3;
+	int dx = x - Center.x;
+	int dy = y - Center.y;
+	P1.x += dx;
+	P1.y += dy;
+	P2.x += dx;
+	P2.y += dy;
+	P3.x += dx;
+	P3.y += dy;
+}

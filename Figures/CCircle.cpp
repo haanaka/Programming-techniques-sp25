@@ -35,3 +35,18 @@ void CCircle::MoveTo(Point destination)
 	this->Center.x += dx;
 	this->Center.y += dy;
 }
+void CCircle::shiftTo(int x, int y)
+{
+	// Shift the circle to a new position
+	int dx = x - Center.x;
+	int dy = y - Center.y;
+	P1.x += dx;
+	P1.y += dy;
+	P2.x += dx;
+	P2.y += dy;
+	Center.x += dx;
+	Center.y += dy;
+}
+int CCircle::getType() {
+	return 1; // 1 for circle
+}

@@ -6,7 +6,7 @@ void ActionCopyOrCut::ReadActionParameters()
 ActionCopyOrCut::ActionCopyOrCut(ApplicationManager* pApp,bool CopyOrCut) : Action(pApp)
 {
 	this->copyorcut = CopyOrCut;
-	Clipboard = NULL;
+	Clipboard = pManager->GetClipboard();
 }
 
 void ActionCopyOrCut::Execute()

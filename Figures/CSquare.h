@@ -10,6 +10,8 @@ public:
 	virtual void Draw(Output* pOut) const;
 	bool IsPointInside(int x, int y) const;
 	void MoveTo(Point destination);
+	void shiftTo(int x, int y);
+	int getType();
 	Point getCenter(Point& center) const;
 };
 

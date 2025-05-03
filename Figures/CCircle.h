@@ -15,6 +15,8 @@ public:
 	bool IsPointInside(int x, int y) const;
 	void Save(ofstream& OutFile);
 	void MoveTo(Point destination);
+	void shiftTo(int x, int y);
+	int getType();
 	Point getCenter(Point& center) const;
 void Load(ifstream& Infile);
 };

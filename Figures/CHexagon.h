@@ -11,7 +11,10 @@ public:
 	void Save(ofstream& OutFile); // Saves the hexagon info to a file
 	void Load(ifstream& Infile); // Loads the hexagon info from a file
 	Point getCenter(Point& center) const; 
-	void MoveTo(Point destination); 
+	void MoveTo(Point destination);
+	void shiftTo(int x, int y);
+	int getType();
+
 };
 
 
