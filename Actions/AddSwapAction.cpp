@@ -57,3 +57,6 @@ void AddSwapAction::Execute()
 	pOut->PrintMessage("Figure swapped");
 	pOut->ClearDrawArea();
 }
+AddSwapAction::~AddSwapAction()
+{
+}

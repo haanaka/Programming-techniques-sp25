@@ -19,4 +19,19 @@ bool CCircle::IsPointInside(int x, int y) const
 	int dy = y - Center.y;
 	return (dx * dx + dy * dy <= Radius * Radius);
 }
-
+Point CCircle::getCenter(Point& center) const
+{
+	center.x = Center.x;
+	center.y = Center.y;
+	return center;
+}
+void CCircle::MoveTo(Point destination)
+{
+	Point Center;
+	Center.x = this->Center.x;
+	Center.y = this->Center.y;
+	int dx = destination.x - Center.x;
+	int dy = destination.y - Center.y;
+	this->Center.x += dx;
+	this->Center.y += dy;
+}
