@@ -8,7 +8,8 @@
 #include "Actions\AddHexaAction.h"
 #include "Actions\AddSwapAction.h"
 #include "Actions\deleteaction.h"
-#include "../../../source/repos/Programming-techniques-sp25/ApplicationManager.h"
+/*#include "../../../source/repos/Programming-techniques-sp25/ApplicationManager.h"*/
+
 //Constructor
 ApplicationManager::ApplicationManager()
 {
@@ -249,14 +250,7 @@ int ApplicationManager::getSelectedFigureIndex() const
 		}
 	}
 }
-int ApplicationManager::getSelectedFigureIndex() const
-{
-	for (int i = 0; i < FigCount; i++) {
-		if (FigList[i] == SelectedFig) {
-			return i;
-		}
-	}
-}
+
 int ApplicationManager::GetClipboardIndex() const
 {
 	for (int i = 0; i < FigCount; i++) {
