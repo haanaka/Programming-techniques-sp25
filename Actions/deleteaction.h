@@ -12,6 +12,7 @@ public:
 
 	virtual void Execute();
 
-};
+
+}
 
 #endif 

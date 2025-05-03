@@ -22,9 +22,10 @@ private:
 	Output *pOut;
 
 	CFigure* Clipboard;  //Pointer to copied/cut figure
+	bool copyorpaste;  //true if the action is copy and false if it is cut
 
-public:	
-	ApplicationManager(); 
+public:
+	ApplicationManager();
 	~ApplicationManager();
 	
 	// -- Action-Related Functions
@@ -32,17 +33,27 @@ public:
 	ActionType GetUserAction() const;
 	void ExecuteAction(ActionType) ; //Creates an action and executes it
 	void deleteselectedfigure(); //Deletes the selected figure
+	void deleteClipboard();
+
 	void clearallfigure(); //Clears all figures
 	
 	// -- Figures Management Functions
 	void AddFigure(CFigure* pFig);          //Adds a new figure to the FigList
 	CFigure *GetFigure(int x, int y) const; //Search for a figure given a point inside the figure
 	CFigure* getSelectedFigure();
+	bool getCopyOrCut();
+	CFigure* GetClipboard();
+
 	void SetSelectedFigure(CFigure* c);
 	CFigure* selectFigure(int x, int y); //Selects a figure given a point inside the figure
 	CFigure* SelectClipboardFigure(int x, int y);
 	int getSelectedFigureIndex() const; //Returns the index of the selected figure in the FigList
+	int GetClipboardIndex() const;
+
 	// -- Interface Management Functions
+
+
+
 	Input *GetInput() const; //Return pointer to the input
 	Output *GetOutput() const; //Return pointer to the output
 	void UpdateInterface() const;	//Redraws all the drawing window	
