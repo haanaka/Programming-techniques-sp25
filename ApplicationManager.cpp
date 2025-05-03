@@ -62,6 +62,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case SWAP:
 			pAct = new AddSwapAction(this);
 			break;
+
 		case EXIT:
 			///create ExitAction here
 			
