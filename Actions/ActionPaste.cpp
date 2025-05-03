@@ -33,12 +33,12 @@ void ActionPaste::Execute()
 
 	pManager->AddFigure(copiedFigure);
 
-	if (pManager->getCopyOrCut()) {
+	if (!pManager->getCopyOrCut()) {
 
 		int index = pManager->GetClipboardIndex();
 		if (index != -1) {
 			pManager->deleteselectedfigure();
 		}
 	}
-	pManager->UpdateInterface();
+
 }

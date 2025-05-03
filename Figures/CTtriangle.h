@@ -13,6 +13,7 @@ public:
 	 Point getCenter(Point& center) const; 
 	 void MoveTo(Point destination);
 	 void shiftTo(int x, int y);
+	 int getType();
 };
 
 

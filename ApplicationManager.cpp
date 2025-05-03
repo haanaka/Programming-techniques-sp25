@@ -18,7 +18,7 @@ ApplicationManager::ApplicationManager()
 	SelectedFig = NULL;
 	Clipboard = NULL;
 	FigCount = 0;
-		
+	copyorCut = true;
 	//Create an array of figure pointers and set them to NULL		
 	for(int i=0; i<MaxFigCount; i++)
 		FigList[i] = NULL;	
@@ -72,11 +72,11 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new SelectAction(this);
 			break;
 		case COPY:
-			copyorpaste = true;
+			copyorCut = true;
 			pAct = new ActionCopyOrCut(this,true);
 			break;
 		case CUT:
-			copyorpaste = false;
+			copyorCut = false;
 			pAct = new ActionCopyOrCut(this, false);
 			break;
 		case STATUS:	//a click on the status bar ==> no action
@@ -148,7 +148,7 @@ CFigure* ApplicationManager::getSelectedFigure() {
 	return SelectedFig;
 }
 bool ApplicationManager::getCopyOrCut() {
-	return copyorpaste;
+	return copyorCut;
 }
 CFigure* ApplicationManager::GetClipboard() {
 	return Clipboard;
@@ -206,7 +206,7 @@ CFigure* ApplicationManager::selectFigure(int x, int y) {
 }
 CFigure* ApplicationManager::SelectClipboardFigure(int x, int y) {
 	// Check if the point (x, y) is inside the selected figure
-	for (int i = 0; i < FigCount; i++) {
+	for (int i = FigCount-1; i >=0; i--) {
 		if (FigList[i]->IsPointInside(x, y)) {
 			if (Clipboard != NULL) {
 				Clipboard->SetSelected(false);
@@ -233,14 +233,7 @@ int ApplicationManager::getSelectedFigureIndex() const
 		}
 	}
 }
-int ApplicationManager::getSelectedFigureIndex() const
-{
-	for (int i = 0; i < FigCount; i++) {
-		if (FigList[i] == SelectedFig) {
-			return i;
-		}
-	}
-}
+
 int ApplicationManager::GetClipboardIndex() const
 {
 	for (int i = 0; i < FigCount; i++) {

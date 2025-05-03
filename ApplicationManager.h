@@ -22,7 +22,7 @@ private:
 	Output *pOut;
 
 	CFigure* Clipboard;  //Pointer to copied/cut figure
-	bool copyorpaste;  //true if the action is copy and false if it is cut
+	bool copyorCut;  //true if the action is copy and false if it is cut
 
 public:
 	ApplicationManager();
