@@ -8,13 +8,13 @@ AddHexaAction::AddHexaAction(ApplicationManager* pApp) :Action(pApp), center()
 {
 }
 void AddHexaAction::ReadActionParameters()
+{
 	Output* pOut = pManager->GetOutput();
 	Input* pIn = pManager->GetInput();
 	pOut->PrintMessage("New Hexagon: click to add center");
 	pIn->GetPointClicked(center.x, center.y);
 	HexaGfxInfo.isFilled = false;
-	HexaGfxI{
-nfo.DrawClr = pOut->getCrntDrawColor();
+	HexaGfxInfo.DrawClr = pOut->getCrntDrawColor();
 	pIn->CheckColor(pOut, HexaGfxInfo);
 	HexaGfxInfo.FillClr = pOut->getCrntFillColor();
 	pIn->CheckFilled(pOut, HexaGfxInfo);

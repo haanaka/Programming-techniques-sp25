@@ -14,9 +14,7 @@ public:
 	void MoveTo(Point destination);
 	void shiftTo(int x, int y);
 	int getType();
-
-};
-
-
 	bool Rotation(); //Function belonging to the rotate class
+
 };
+

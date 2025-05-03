@@ -39,9 +39,9 @@ void CSquare::shiftTo(int x, int y)
 	this->Center.x += dx;
 	this->Center.y += dy;
 }
-int CSquare::getType() {
+int CSquare::getType() 
+{
 	return 4; // 4 for square
-}
 }
 bool CSquare::Rotation()
 {

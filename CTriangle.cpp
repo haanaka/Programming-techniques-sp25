@@ -55,7 +55,6 @@ void CTriangle::shiftTo(int x, int y) {
 int CTriangle::getType() {
 	return 2;
 }
-}
 static Point RotatePoint90(const Point& P, const Point& C)
 {
 	Point R;

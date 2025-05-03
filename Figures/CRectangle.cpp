@@ -55,7 +55,6 @@ void CRectangle::shiftTo(int x, int y)
 int CRectangle::getType() {
 	return 5; // 5 for rectangle
 }
-}
 bool CRectangle::Rotation()
 {
 	Point M; //point M will be the middle of the selected figure

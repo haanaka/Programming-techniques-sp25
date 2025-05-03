@@ -49,12 +49,17 @@ void CHexagon::MoveTo(Point destination)
 }
 void CHexagon::shiftTo(int x, int y)
 {
-	Center.x = x;
-	Center.y = y;
+	Point Center;
+	Center.x = this->Center.x;
+	Center.y = this->Center.y;
+	int dx = x - Center.x;
+	int dy = y - Center.y;
+	this->Center.x += dx;
+	this->Center.y += dy;
 }
-int CHexagon::getType() {
+int CHexagon::getType() 
+{
 	return 3; // 3 for hexagon
-}
 }
 bool CHexagon::Rotation()
 {
