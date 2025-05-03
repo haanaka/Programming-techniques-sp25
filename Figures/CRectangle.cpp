@@ -70,3 +70,7 @@ bool CRectangle::Rotation()
 	Corner2.y = (M.y - sidelx) / 2;
 	return true;
 }
+CFigure* CRectangle::Clone() const
+{
+	return new CRectangle(*this);
+}

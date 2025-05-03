@@ -11,15 +11,26 @@ void CTriangle::Draw(Output* pOut) const
 {
 	pOut->DrawTriangle(P1, P2, P3, FigGfxInfo, Selected);
 }
-
+float DIFF(Point p1, Point p2) {
+	float dx = p1.x - p2.x;
+	float dy = p1.y - p2.y;
+	return (sqrt(dx*dx+dy*dy));
+}
 bool CTriangle::IsPointInside(int x, int y) const
 {
-	float d1 = ((P2.y - P3.y) * (x - P3.x) + (P3.x - P2.x) * (y - P3.y)) /
-		((P2.y - P3.y) * (P1.x - P3.x) + (P3.x - P2.x) * (P1.y - P3.y));
-	float d2 = ((P3.y - P1.y) * (x - P3.x) + (P1.x - P3.x) * (y - P3.y)) /
-		((P2.y - P3.y) * (P1.x - P3.x) + (P3.x - P2.x) * (P1.y - P3.y));
-	float d3 = 1.0f - d1 - d2;
-	return (d1 > 0 && d2 > 0 && d3 > 0);
+	Point P;
+	float rc1, rc2, rc3,r12,r23,r31,A,A1,A2,A3;
+	rc1 = DIFF(P, P1);
+	rc2 = DIFF(P, P2);
+	rc3 = DIFF(P, P3);
+	r12 = DIFF(P1, P2);
+	r23 = DIFF(P2, P3);
+	r31 = DIFF(P3, P1);
+	A = (r12 + r23 + r31) / 2;
+	A1 = (rc1 + rc2 + r12) / 2;
+	A2 = (rc2 + rc3 + r23) / 2;
+	A3 = (rc3 + rc1 + r31) / 2;
+	return(A-(A1+A2+A3<0.1));
 }
 Point CTriangle::getCenter(Point& center) const {
 	center.x = (P1.x + P2.x + P3.x) / 3;
@@ -73,4 +84,8 @@ bool CTriangle::Rotation()
 	P2 = RotatePoint90(P2, C);
 	P3 = RotatePoint90(P3, C);
 	return true;
+}
+CFigure* CTriangle::Clone()
+{
+	return new CTriangle(*this);
 }

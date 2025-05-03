@@ -47,3 +47,7 @@ bool CSquare::Rotation()
 {
 	return false;
 }
+CFigure* CSquare::Clone() const
+{
+	return new CSquare(*this);
+}

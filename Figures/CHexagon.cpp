@@ -65,3 +65,7 @@ bool CHexagon::Rotation()
 {
     return false;
 }
+CFigure* CHexagon::Clone() const
+{
+	return new CHexagon(*this);
+}

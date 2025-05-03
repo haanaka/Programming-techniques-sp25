@@ -14,6 +14,7 @@ public:
 	int getType();
 	Point getCenter(Point& center) const;
 	bool Rotation(); //Function belonging to the rotate class
+	CFigure* Clone() const;
 };
 
 

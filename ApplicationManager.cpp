@@ -272,7 +272,8 @@ int ApplicationManager::GetClipboardIndex() const
 void ApplicationManager::UpdateInterface() const
 {	
 	for(int i=0; i<FigCount; i++)
-		FigList[i]->Draw(pOut);		//Call Draw function (virtual member fn)
+		if (FigList[i] != NULL)
+			FigList[i]->Draw(pOut);	
 }
 ////////////////////////////////////////////////////////////////////////////////////
 //Return a pointer to the input

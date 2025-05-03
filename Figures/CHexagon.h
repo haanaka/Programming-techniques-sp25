@@ -16,5 +16,7 @@ public:
 	int getType();
 	bool Rotation(); //Function belonging to the rotate class
 
+	CFigure* Clone() const;
+
 };
 

@@ -56,3 +56,7 @@ void CCircle::shiftTo(int x, int y)
 int CCircle::getType() {
 	return 1; // 1 for circle
 }
+CFigure* CCircle::Clone() const
+{
+	return new CCircle(*this); // Create a new circle with the same properties
+}
