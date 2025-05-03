@@ -10,7 +10,7 @@
 enum GUI_MODE	//Graphical user interface mode
 {
 	MODE_DRAW,	//Drawing mode (startup mode)
-	MODE_PLAY	//Playing mode
+	MODE_PLAY,	//Playing mode
 };
 
 enum DrawMenuItem //The items of the Draw menu (you should add more items)

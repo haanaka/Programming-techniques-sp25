@@ -1,6 +1,6 @@
+#pragma once
 #ifndef dELETEAction_h
 #define dELETEAction_h
-#pragma once
 #include "Action.h"
 
 class dELETEAction : public Action
@@ -13,6 +13,6 @@ public:
 	virtual void Execute();
 
 
-}
+};
 
 #endif 

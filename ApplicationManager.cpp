@@ -10,7 +10,6 @@
 #include "Actions\deleteaction.h"
 /*#include "../../../source/repos/Programming-techniques-sp25/ApplicationManager.h"*/
 
-//Constructor
 ApplicationManager::ApplicationManager()
 {
 	//Create Input and output
