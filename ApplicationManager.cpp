@@ -46,7 +46,6 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case DRAW_TRI:
 			pAct = new AddTriAction(this);
 			break;
-
 		case EXIT:
 			///create ExitAction here
 			
