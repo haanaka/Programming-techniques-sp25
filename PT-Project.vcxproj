@@ -183,6 +183,7 @@
     <ClCompile Include="GUI\Output.cpp" />
     <ClCompile Include="ApplicationManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Actions\SAVE.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actions\ActionCopyOrCut.h" />
@@ -226,6 +227,7 @@
     <ClInclude Include="GUI\UI_Info.h" />
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="DEFS.h" />
+    <ClInclude Include="Actions\SAVE.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
