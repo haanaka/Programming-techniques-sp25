@@ -51,5 +51,5 @@ void CRectangle::shiftTo(int x, int y)
 	Corner2.y += dy;
 }
 int CRectangle::getType() {
-	return 5; // 2 for rectangle
+	return 5; // 5 for rectangle
 }

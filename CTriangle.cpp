@@ -51,4 +51,6 @@ void CTriangle::shiftTo(int x, int y) {
 	P3.x += dx;
 	P3.y += dy;
 }
-int CTriangle::getType() { return 2; }
+int CTriangle::getType() {
+	return 2;
+}

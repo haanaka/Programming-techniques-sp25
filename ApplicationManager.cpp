@@ -8,7 +8,8 @@
 #include "Actions\AddHexaAction.h"
 #include "Actions\AddSwapAction.h"
 #include "Actions\deleteaction.h"
-#include "../../../source/repos/Programming-techniques-sp25/ApplicationManager.h"
+/*#include "../../../source/repos/Programming-techniques-sp25/ApplicationManager.h"*/
+
 //Constructor
 ApplicationManager::ApplicationManager()
 {
@@ -62,6 +63,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case SWAP:
 			pAct = new AddSwapAction(this);
+			break;
+		case dELETE:
+			pAct = new dELETEAction(this);
 			break;
 
 		case EXIT:
@@ -118,6 +122,19 @@ void ApplicationManager::deleteClipboard() {
 	}
 }
 
+void ApplicationManager::clearallfigure()
+{
+	int index = getSelectedFigureIndex();
+	if (index != -1) {
+		SelectedFig = NULL;
+		for (int i = index; i < FigCount; i++) {
+			FigList[i] = FigList[i + 1];
+			delete FigList[FigCount];
+			FigList[FigCount] = NULL;
+			FigCount--;
+		}
+	}
+}
 //==================================================================================//
 //						Figures Management Functions								//
 //==================================================================================//
