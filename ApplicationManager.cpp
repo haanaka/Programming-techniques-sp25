@@ -7,6 +7,7 @@
 #include "Actions\AddCircAction.h"
 #include "Actions\AddHexaAction.h"
 #include "Actions\AddSwapAction.h"
+#include "Actions\deleteaction.h"
 //Constructor
 ApplicationManager::ApplicationManager()
 {
@@ -86,6 +87,20 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		pAct = NULL;
 	}
 }
+void ApplicationManager::deleteselectedfigure()
+{
+	int index = getSelectedFigureIndex();
+	if (index != -1) {
+		SelectedFig = NULL; 
+		for (int i = index; i < FigCount; i++) {
+			FigList[i] = FigList[i + 1];
+			delete FigList[FigCount];
+			FigList[FigCount] = NULL;
+			FigCount--;
+
+		}
+	}
+}
 //==================================================================================//
 //						Figures Management Functions								//
 //==================================================================================//
@@ -123,6 +138,10 @@ CFigure* ApplicationManager::selectFigure(int x, int y) {
 				SelectedFig->SetSelected(false);
 				SelectedFig->Draw(pOut); //Deselect the previously selected figure
 			}
+			if (Clipboard != NULL) {
+				Clipboard->SetSelected(false);
+				Clipboard->Draw(pOut); //Deselect the previously selected figure
+			}
 			SelectedFig = FigList[i];
 			SelectedFig->SetSelected(true);
 			SelectedFig->Draw(pOut);
@@ -156,6 +175,14 @@ CFigure* ApplicationManager::SelectClipboardFigure(int x, int y) {
 		Clipboard = NULL;
 	}
 	return NULL;
+}
+int ApplicationManager::getSelectedFigureIndex() const
+{
+	for (int i = 0; i < FigCount; i++) {
+		if (FigList[i] == SelectedFig) {
+			return i;
+		}
+	}
 }
 // It returns a pointer to the selected figure
 //==================================================================================//
