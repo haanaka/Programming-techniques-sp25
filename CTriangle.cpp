@@ -19,6 +19,8 @@ float DIFF(Point p1, Point p2) {
 bool CTriangle::IsPointInside(int x, int y) const
 {
 	Point P;
+	P.x = x;
+	P.y = y;
 	float rc1, rc2, rc3,r12,r23,r31,A,A1,A2,A3;
 	rc1 = DIFF(P, P1);
 	rc2 = DIFF(P, P2);

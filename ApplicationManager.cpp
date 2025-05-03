@@ -8,6 +8,7 @@
 #include "Actions\AddHexaAction.h"
 #include "Actions\AddSwapAction.h"
 #include "Actions\deleteaction.h"
+#include "Actions\ActionPaste.h"
 /*#include "../../../source/repos/Programming-techniques-sp25/ApplicationManager.h"*/
 
 #include "Rotate.h"
@@ -74,7 +75,8 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 		case EXIT:
 			///create ExitAction here
-			
+		case PASTE:
+			pAct = new ActionPaste(this);
 			break;
 		case SELECT:
 			pAct = new SelectAction(this);
