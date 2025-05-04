@@ -32,7 +32,7 @@ bool CTriangle::IsPointInside(int x, int y) const
 	A1 = (rc1 + rc2 + r12) / 2;
 	A2 = (rc2 + rc3 + r23) / 2;
 	A3 = (rc3 + rc1 + r31) / 2;
-	return(A-(A1+A2+A3<0.1));
+	return(A - (A1 + A2 + A3) < 0.01);
 }
 Point CTriangle::getCenter(Point& center) const {
 	center.x = (P1.x + P2.x + P3.x) / 3;

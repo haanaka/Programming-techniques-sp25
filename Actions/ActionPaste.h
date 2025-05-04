@@ -3,7 +3,6 @@
 
 class ActionPaste :public Action
 {
-	ApplicationManager* pManager;
 public:
 	ActionPaste(ApplicationManager* pApp);
 	void ReadActionParameters();
