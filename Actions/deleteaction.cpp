@@ -25,3 +25,15 @@ void dELETEAction::Execute()
 		pOut->PrintMessage("No figure selected");
 	
 }
+void dELETEAction::Execute1()
+{
+	Output* pOut = pManager->GetOutput();
+
+	if (pManager->getCopyOrCut()) {
+		pOut->PrintMessage("Figure Deleted");
+		pManager->deleteClipboard();
+	}
+	else
+		pOut->PrintMessage("No figure selected");
+
+}

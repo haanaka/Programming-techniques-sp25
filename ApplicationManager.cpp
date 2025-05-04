@@ -124,17 +124,15 @@ void ApplicationManager::deleteClipboard() {
 
 void ApplicationManager::clearallfigure()
 {
-	int index = getSelectedFigureIndex();
-	if (index != -1) {
-		SelectedFig = NULL;
-		for (int i = index; i < FigCount; i++) {
+		for (int i = 0; i < FigCount; i++) {
 			FigList[i] = FigList[i + 1];
 			delete FigList[FigCount];
 			FigList[FigCount] = NULL;
 			FigCount--;
 		}
-	}
+	
 }
+
 //==================================================================================//
 //						Figures Management Functions								//
 //==================================================================================//
@@ -148,17 +146,11 @@ void ApplicationManager::AddFigure(CFigure* pFig)
 ////////////////////////////////////////////////////////////////////////////////////
 CFigure *ApplicationManager::GetFigure(int x, int y) const
 {
-	//If a figure is found return a pointer to it.
-	//if this point (x,y) does not belong to any figure return NULL
 	for (int i = 0; i < FigCount; i++)
 	{
 		if (FigList[i]->IsPointInside(x, y))
 			return FigList[i];
 	}
-
-	//Add your code here to search for a figure given a point x,y	
-	//Remember that ApplicationManager only calls functions do NOT implement it.
-
 	return NULL;
 }
 CFigure* ApplicationManager::getSelectedFigure() {
@@ -251,7 +243,6 @@ int ApplicationManager::getSelectedFigureIndex() const
 	}
 	return -1; // Return -1 if no selected figure is found
 }
-
 int ApplicationManager::GetClipboardIndex() const
 {
 	for (int i = 0; i < FigCount; i++) {
@@ -269,6 +260,7 @@ int ApplicationManager::GetClipboardIndex() const
 //Draw all figures on the user interface
 void ApplicationManager::UpdateInterface() const
 {	
+	pOut->ClearDrawArea();
 	for(int i=0; i<FigCount; i++)
 		if (FigList[i] != NULL)
 			FigList[i]->Draw(pOut);	

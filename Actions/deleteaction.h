@@ -12,6 +12,8 @@ public:
 
 	virtual void Execute();
 
+	void Execute1();
+
 
 };
 
