@@ -32,5 +32,4 @@ void ActionCopyOrCut::Execute()
 		pOut->PrintMessage("No figure selected");
 	}
 	pOut->PrintMessage("Figure copied to clipboard");
-	pIn->GetPointClicked(x, y);
 }
