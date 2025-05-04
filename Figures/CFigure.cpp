@@ -31,3 +31,9 @@ void CFigure::setID(int id)
 	ID = (id>0);
 }
 int CFigure::getType() { return 0; }
+color CFigure::getdrawcolor()const {
+	return FigGfxInfo.DrawClr;
+}
+color CFigure::getfillcolor()const {
+	return FigGfxInfo.FillClr;
+}

@@ -23,5 +23,7 @@ public:
 
 	bool Rotation(); //Function belonging to the rotate class
 	CFigure* Clone() const override;
+	virtual color getdrawcolor() const;
+	virtual color getfillcolor()const ;
 };
 #endif

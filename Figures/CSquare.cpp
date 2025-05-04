@@ -56,3 +56,11 @@ CFigure* CSquare::Clone() const
 {
 	return new CSquare(*this);
 }
+color CSquare::getdrawcolor() const
+{
+	return FigGfxInfo.DrawClr;
+}
+color CSquare::getfillcolor() const
+{
+	return FigGfxInfo.FillClr;
+}

@@ -1,7 +1,6 @@
 #include "CCircle.h"
 #include "../ApplicationManager.h"
 #include "../GUI/Output.h"
-#include <iostream>
 CCircle::CCircle(Point Point1,Point Point2, int r, GfxInfo FigureGfxInfo) : CFigure(FigureGfxInfo)
 {
 	P1 = Point1;
@@ -23,10 +22,6 @@ bool CCircle::IsPointInside(int x, int y) const
 	int dy = y - Center.y;
 	float R = DIFF(P1, P2);
 	return (dx * dx + dy * dy <= R * R);
-}
-void CCircle::Save(ofstream& OutFile)
-{
-	cout << "Circle " << getID() << "  " << Center.x << "  " << Center.y << "  " << Radius << "  " << endl;
 }
 bool CCircle::Rotation()
 {
@@ -67,4 +62,12 @@ int CCircle::getType() {
 CFigure* CCircle::Clone() const
 {
 	return new CCircle(*this); // Create a new circle with the same properties
+}
+color CCircle::getdrawcolor() const
+{
+	return FigGfxInfo.DrawClr;
+}
+color CCircle::getfillcolor() const
+{
+	return FigGfxInfo.FillClr;
 }

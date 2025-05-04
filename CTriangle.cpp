@@ -117,3 +117,9 @@ CFigure* CTriangle::Clone() const
 {
 	return new CTriangle(*this);
 }
+color CTriangle::getdrawcolor() const {
+	return FigGfxInfo.DrawClr;
+}
+color CTriangle::getfillcolor() const {
+	return FigGfxInfo.FillClr;
+}

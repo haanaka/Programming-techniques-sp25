@@ -21,5 +21,7 @@ public:
 	Point getCenter(Point& center) const;
 	void Load(ifstream& Infile);
 	bool Rotation(); //Function belonging to the rotate class
+	color getdrawcolor() const;
+	color getfillcolor() const;
 };
 
