@@ -18,22 +18,29 @@ void Rotate::ReadActionParameters()
 }
 void Rotate::Execute()
 {
+    int x, y;
 	ReadActionParameters();
     CFigure* SelectedFig = pManager->getSelectedFigure();
     Output* pOut = pManager->GetOutput();
-    if (SelectedFig == NULL)
+    if (SelectedFig != NULL)
     {
-        pOut->PrintMessage("No figure selected to rotate.");
-    }
-    else
-    {
-
         bool didRotate = SelectedFig->Rotation();
         pManager->UpdateInterface();
 
         if (didRotate)
-            pOut->PrintMessage("Figure rotated successfully");
+        {
+            pOut->PrintMessage("Figure rotated successfully.");
+
+            pManager->GetInput()->GetPointClicked(x, y); // Wait for user to click before clearing the message
+        }
         else
-            pOut->PrintMessage("No effect on this shape");
+        {
+            pOut->PrintMessage("No effect on this shape.");
+            pManager->GetInput()->GetPointClicked(x, y); // Wait for user to click before clearing the message
+        }
+    }
+    else
+    {
+        pOut->PrintMessage("Select exactly one figure to rotate.");
     }
 }
