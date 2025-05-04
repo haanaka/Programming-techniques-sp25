@@ -42,8 +42,7 @@ void ActionPaste::Execute()
         PasteFigure->shiftTo(x, y);
         PasteFigure->SetSelected(false);
 		pClipboard->SetSelected(false);
-		pAct = new dELETEAction(pManager);
-		pAct->Execute1();
+	
         pManager->AddFigure(PasteFigure);
         pManager->UpdateInterface();
     }

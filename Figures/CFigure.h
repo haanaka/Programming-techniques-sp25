@@ -25,6 +25,8 @@ public:
 	virtual void shiftTo(int x, int y) = 0; //shift the figure to a new position
 	void ChngDrawClr(color Dclr);	//changes the figure's drawing color
 	void ChngFillClr(color Fclr);	//changes the figure's filling color
+	int getID() const;
+	void setID(int id);
 	virtual bool IsPointInside(int x, int y) const=0;
 	virtual void MoveTo(Point destination)=0;
 	virtual Point getCenter(Point& center) const = 0; 
