@@ -59,3 +59,11 @@ CFigure* CCircle::Clone() const
 {
 	return new CCircle(*this); // Create a new circle with the same properties
 }
+color CCircle::getdrawcolor() const
+{
+	return FigGfxInfo.DrawClr;
+}
+color CCircle::getfillcolor() const
+{
+	return FigGfxInfo.FillClr;
+}

@@ -10,7 +10,7 @@ public:
 	SAVEAction(ApplicationManager* pApp);
 
 	virtual void ReadActionParameters();
-
+	string getcolorname(color c);
 
 	virtual void Execute();
 

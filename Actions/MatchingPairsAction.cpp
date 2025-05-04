@@ -1,20 +1,21 @@
-#include "AddSwapAction.h"
-#include "..\Figures\CFigure.h"
+#include "MatchingPairsAction.h"
 #include "..\ApplicationManager.h"
 #include "..\GUI\Output.h"
 #include "..\GUI\Input.h"
-#include"SelectAction.h"
-
-AddSwapAction::AddSwapAction(ApplicationManager* pApp) :Action(pApp)
+#include "..\Figures\CFigure.h"
+#include"..\Actions\SAVE.h"
+#include "..\DEFS.h"
+MatchingPairsAction::MatchingPairsAction(ApplicationManager* pApp) : Action(pApp),score(0)
 {
+
 	FirstFigure = nullptr;
 	SecondFigure = nullptr;
-}
-void AddSwapAction::ReadActionParameters()
+}	
+void MatchingPairsAction::ReadActionParameters()
 {
-	
+	// No parameters to read for this action
 }
-void AddSwapAction::Execute()
+void MatchingPairsAction::Execute()
 {
 	Output* pOut = pManager->GetOutput();
 	Input* pIn = pManager->GetInput();
@@ -41,23 +42,21 @@ void AddSwapAction::Execute()
 		}
 		pOut->PrintMessage("No figure selected, please select a figure");
 	}
-	FirstFigure->SetSelected(false);
-	SecondFigure->SetSelected(false);
-	pManager->UpdateInterface();
-	if (!FirstFigure || !SecondFigure)
+	if (!FirstFigure && !SecondFigure)
 		return;
-		
-	Point center1;
-	Point center2;
-	FirstFigure->getCenter(center1);
-   SecondFigure->getCenter(center2);
-	FirstFigure->MoveTo(center2);
-	SecondFigure->MoveTo(center1);
-	pManager->GetOutput()->PrintMessage("No figure selected, please select a figure");
-	pManager->UpdateInterface();
-	pOut->PrintMessage("Figure swapped");
-	pOut->ClearDrawArea();
+  
+	bool isMatch = (FirstFigure->getType() == SecondFigure->getType()) ||
+		(FirstFigure->getdrawcolor() == SecondFigure->getdrawcolor()) ||
+		(FirstFigure->getfillcolor() == SecondFigure->getfillcolor());
+	if (isMatch) {
+		score++;
+		pOut->PrintMessage(" Excellent Correct! Score:" + to_string(score));
+	}
+	else {
+		score--;
+		pOut->PrintMessage(" Wrong! score: " + to_string(score));
+	}
 }
-AddSwapAction::~AddSwapAction()
-{
-}
+
+
+

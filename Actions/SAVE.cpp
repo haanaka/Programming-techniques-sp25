@@ -15,7 +15,7 @@ void SAVEAction::Execute()
 {
 	//Get a Pointer to the Output Interfaces
 }
-string getcolorname(color c) {
+string SAVEAction:: getcolorname(color c) {
 		if (c == RED) return "red";
 		if (c == GREEN) return "green";
 		if (c == BLUE) return "blue";

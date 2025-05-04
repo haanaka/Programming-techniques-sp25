@@ -21,5 +21,7 @@ public:
 
 	bool Rotation(); //Function belonging to the rotate class
 	CFigure* Clone() const;
+	virtual color getdrawcolor() const;
+	virtual color getfillcolor()const ;
 };
 #endif

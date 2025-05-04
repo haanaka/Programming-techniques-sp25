@@ -24,3 +24,9 @@ void CFigure::ChngFillClr(color Fclr)
 }
 int CFigure::getType() { return 0; }
 CFigure* CFigure::Clone() const { return nullptr; } // Default implementation
+color CFigure::getdrawcolor()const {
+	return FigGfxInfo.DrawClr;
+}
+color CFigure::getfillcolor()const {
+	return FigGfxInfo.FillClr;
+}

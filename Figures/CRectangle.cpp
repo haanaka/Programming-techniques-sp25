@@ -74,3 +74,9 @@ CFigure* CRectangle::Clone() const
 {
 	return new CRectangle(*this);
 }
+color CRectangle::getdrawcolor()const {
+	return FigGfxInfo.DrawClr;
+}
+color CRectangle::getfillcolor()const {
+	return  FigGfxInfo.FillClr;
+}

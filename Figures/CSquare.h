@@ -15,6 +15,8 @@ public:
 	Point getCenter(Point& center) const;
 	bool Rotation(); //Function belonging to the rotate class
 	CFigure* Clone() const;
+	color getdrawcolor() const;
+	color getfillcolor() const;
 };
 
 
