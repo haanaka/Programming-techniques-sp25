@@ -1,7 +1,6 @@
 #pragma once
 #include "CFigure.h"
-class CSquare :
-    public CFigure
+class CSquare : public CFigure
 {
 private:
 	Point Center; // Top left corner of the square
@@ -13,6 +12,7 @@ public:
 	void shiftTo(int x, int y);
 	int getType();
 	Point getCenter(Point& center) const;
+	void Save(ofstream& OutFile);
 	bool Rotation(); //Function belonging to the rotate class
 	CFigure* Clone() const;
 	color getdrawcolor() const;

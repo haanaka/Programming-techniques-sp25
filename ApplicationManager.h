@@ -34,6 +34,7 @@ public:
 	void ExecuteAction(ActionType) ; //Creates an action and executes it
 	void deleteselectedfigure(); //Deletes the selected figure
 	void deleteClipboard();
+	void Saveall(ofstream& out ); //Saves all figures to a file
 
 	void clearallfigure(); //Clears all figures
 	
@@ -46,6 +47,7 @@ public:
 
 	void SetSelectedFigure(CFigure* c);
 	CFigure* selectFigure(int x, int y); //Selects a figure given a point inside the figure
+	void SetClipboard(CFigure* C);
 	CFigure* SelectClipboardFigure(int x, int y);
 	int getSelectedFigureIndex() const; //Returns the index of the selected figure in the FigList
 	int GetClipboardIndex() const;

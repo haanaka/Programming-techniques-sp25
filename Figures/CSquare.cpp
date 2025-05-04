@@ -2,6 +2,7 @@
 #include "../GUI/Output.h"
 #include "CSquare.h"
 #define r2  1.4142135623731
+#include <iostream>
 CSquare::CSquare(Point P1, GfxInfo FigureGfxInfo) : CFigure(FigureGfxInfo)
 {
 	Center = P1;
@@ -19,6 +20,10 @@ Point CSquare::getCenter(Point& center) const {
 	center.x = Center.x;
 	center.y = Center.y;
 	return center;
+}
+void CSquare::Save(ofstream& OutFile)
+{
+	cout << "Square" << "  " << "  " << Center.x << "  " << Center.y << "  " << endl;
 }
 void CSquare::MoveTo(Point destination) {
 	Point Center;

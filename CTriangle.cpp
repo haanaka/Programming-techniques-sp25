@@ -1,6 +1,7 @@
 #include "ApplicationManager.h"
 #include "GUI/Output.h"
 #include "Figures/CTtriangle.h"
+#include <iostream>
 CTriangle::CTriangle(Point Point1, Point Point2, Point Point3, GfxInfo FigureGfxInfo) : CFigure(FigureGfxInfo)
 {
 	P1 = Point1;
@@ -33,6 +34,10 @@ bool CTriangle::IsPointInside(int x, int y) const
 	A2 = (rc2 + rc3 + r23) / 2;
 	A3 = (rc3 + rc1 + r31) / 2;
 	return(A - (A1 + A2 + A3) < 0.01);
+}
+void CTriangle::Save(ofstream& OutFile)
+{
+	cout << "Triangle" << "  " << P1.x << "  " << P2.x << "  " <<"  "<<P3.x << endl;
 }
 Point CTriangle::getCenter(Point& center) const {
 	center.x = (P1.x + P2.x + P3.x) / 3;
@@ -78,14 +83,38 @@ static Point RotatePoint90(const Point& P, const Point& C)
 
 bool CTriangle::Rotation()
 {
-	Point C;
-	C.x = (P1.x + P2.x + P3.x) / 3;
-	C.y = (P1.y + P2.y + P3.y) / 3;
+	//  Compute the triangle’s center
+	Point center;
+	center.x = (P1.x + P2.x + P3.x) / 3;
+	center.y = (P1.y + P2.y + P3.y) / 3;
 
-	P1 = RotatePoint90(P1, C);
-	P2 = RotatePoint90(P2, C);
-	P3 = RotatePoint90(P3, C);
-	return true;
+	//  Put the three corners in an array so we can loop
+	Point pts[3];
+	pts[0] = P1;
+	pts[1] = P2;
+	pts[2] = P3;
+
+	//For each point: translate to center, rotate 90° CW, translate back
+	for (int i = 0; i < 3; i++)
+	{
+		int dx = pts[i].x - center.x;  // relative x
+		int dy = pts[i].y - center.y;  // relative y
+
+		// 90° CW rotation: new dx =  dy, new dy = –dx
+		int newDx = dy;
+		int newDy = -dx;
+
+		// write back rotated position
+		pts[i].x = center.x + newDx;
+		pts[i].y = center.y + newDy;
+	}
+
+	// Update the triangle’s corners
+	P1 = pts[0];
+	P2 = pts[1];
+	P3 = pts[2];
+
+	return true;  // indicates the shape actually changed
 }
 CFigure* CTriangle::Clone()
 {

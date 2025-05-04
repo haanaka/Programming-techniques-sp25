@@ -7,33 +7,40 @@
 Rotate::Rotate(ApplicationManager* pApp) : Action(pApp)
 {
 };
-
 void Rotate::ReadActionParameters()
 {
+	int x, y; // Coordinates of the point clicked by the user
 	//Get a Pointer to the Input / Output Interfaces
 	Output* pOut = pManager->GetOutput();
 	Input* pIn = pManager->GetInput();
 	pOut->ClearStatusBar();
 	pOut->PrintMessage("Rotate: Select one figure to rotate clockwise by 90 degrees");
+	pIn->GetPointClicked(x, y); // Wait for user to click
 }
 void Rotate::Execute()
 {
+    int x, y;
 	ReadActionParameters();
     CFigure* SelectedFig = pManager->getSelectedFigure();
     Output* pOut = pManager->GetOutput();
-    if (SelectedFig == NULL)
+    if (SelectedFig != NULL)
     {
-        pOut->PrintMessage("No figure selected to rotate.");
+        bool didRotate = SelectedFig->Rotation();
+        pManager->UpdateInterface();
+        if (didRotate)
+        {
+            pOut->PrintMessage("Figure rotated successfully.");
+            pManager->GetInput()->GetPointClicked(x, y); // Wait for user to click before clearing the message
+        }
+        else
+        {
+            pOut->PrintMessage("No effect on this shape.");
+            pManager->GetInput()->GetPointClicked(x, y); // Wait for user to click before clearing the message
+        }
     }
     else
     {
-
-        bool didRotate = SelectedFig->Rotation();
-        pManager->UpdateInterface();
-
-        if (didRotate)
-            pOut->PrintMessage("Figure rotated successfully");
-        else
-            pOut->PrintMessage("No effect on this shape");
+        pOut->PrintMessage("Select exactly one figure to rotate.");
+        pManager->GetInput()->GetPointClicked(x, y); // Wait for user to click before clearing the message
     }
 }
