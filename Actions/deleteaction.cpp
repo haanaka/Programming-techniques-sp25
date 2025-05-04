@@ -23,7 +23,6 @@ void dELETEAction::Execute()
 	}
 	else
 		pOut->PrintMessage("No figure selected");
-	
 }
 void dELETEAction::Execute1()
 {
