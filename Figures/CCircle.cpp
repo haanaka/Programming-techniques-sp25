@@ -1,6 +1,7 @@
 #include "CCircle.h"
 #include "../ApplicationManager.h"
 #include "../GUI/Output.h"
+#include <iostream>
 CCircle::CCircle(Point Point1,Point Point2, int r, GfxInfo FigureGfxInfo) : CFigure(FigureGfxInfo)
 {
 	P1 = Point1;
@@ -20,6 +21,10 @@ bool CCircle::IsPointInside(int x, int y) const
 	int dx = x - Center.x;
 	int dy = y - Center.y;
 	return (dx * dx + dy * dy <= Radius * Radius);
+}
+void CCircle::Save(ofstream& OutFile)
+{
+	cout << "Circle " << getID() << "  " << Center.x << "  " << Center.y << "  " << Radius << "  " << endl;
 }
 bool CCircle::Rotation()
 {

@@ -34,6 +34,7 @@ public:
 	void ExecuteAction(ActionType) ; //Creates an action and executes it
 	void deleteselectedfigure(); //Deletes the selected figure
 	void deleteClipboard();
+	void Saveall(ofstream& out ); //Saves all figures to a file
 
 	void clearallfigure(); //Clears all figures
 	

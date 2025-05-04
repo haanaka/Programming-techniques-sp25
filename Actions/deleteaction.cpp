@@ -23,5 +23,4 @@ void dELETEAction::Execute()
 	}
 	else
 		pOut->PrintMessage("No figure selected");
-	
 }

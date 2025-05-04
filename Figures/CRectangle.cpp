@@ -1,6 +1,7 @@
 #include "CRectangle.h"
 #include "../ApplicationManager.h"
 #include "../GUI/Output.h"
+#include <iostream>
 
 CRectangle::CRectangle(Point P1, Point P2, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)
 {
@@ -54,6 +55,10 @@ void CRectangle::shiftTo(int x, int y)
 }
 int CRectangle::getType() {
 	return 5; // 5 for rectangle
+}
+void CRectangle::Save(ofstream& OutFile)
+{
+	cout << "RECT" << "  " << "  " << Corner1.x << "  " << Corner1.y << "  " << Corner2.x << "  " << Corner2.y << "  " << endl;
 }
 bool CRectangle::Rotation()
 {

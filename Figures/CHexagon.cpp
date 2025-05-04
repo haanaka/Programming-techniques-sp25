@@ -3,6 +3,7 @@
 #include "../ApplicationManager.h"
 #include "../GUI/Output.h"
 #define r3 1.7320508075689
+#include<iostream>
 
 CHexagon::CHexagon(Point  P, GfxInfo FigureGfxInfo) : CFigure(FigureGfxInfo)
 {
@@ -29,6 +30,10 @@ bool CHexagon::IsPointInside(int x, int y) const
         return false;
 
     return true;
+}
+void CHexagon::Save(ofstream& OutFile)
+{
+	cout << "HEX" << "  " << "  " << Center.x << "  " << Center.y << "  " << endl;
 }
 Point CHexagon::getCenter(Point& center) const
 {

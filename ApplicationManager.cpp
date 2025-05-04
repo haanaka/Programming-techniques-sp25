@@ -7,8 +7,9 @@
 #include "Actions\AddCircAction.h"
 #include "Actions\AddHexaAction.h"
 #include "Actions\AddSwapAction.h"
-#include "Actions\deleteaction.h"
+#include "Actions\dELETEAction.h"
 #include "Actions\ActionPaste.h"
+#include "Actions\SAVE.h"
 /*#include "../../../source/repos/Programming-techniques-sp25/ApplicationManager.h"*/
 
 #include "Rotate.h"
@@ -65,6 +66,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case SWAP:
 			pAct = new AddSwapAction(this);
+			break;
+		case SAVE:
+			pAct = new SAVEAction(this);
 			break;
 		case dELETE:
 			pAct = new dELETEAction(this);
@@ -125,6 +129,14 @@ void ApplicationManager::deleteClipboard() {
 			FigList[FigCount] = NULL;
 			FigCount--;
 		}
+	}
+}
+
+void ApplicationManager::Saveall(ofstream& out)
+{
+	for (int i = 0; i < FigCount; i++)
+	{
+		FigList[i]->Save(out);
 	}
 }
 

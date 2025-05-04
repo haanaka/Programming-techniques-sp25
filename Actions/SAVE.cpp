@@ -9,23 +9,20 @@ SAVEAction::SAVEAction(ApplicationManager* pApp) : Action(pApp)
 }
 void SAVEAction::ReadActionParameters()
 {
-	//No parameters to read from the user
+	Output* pOut = pManager->GetOutput();
+	Input* pIn = pManager->GetInput();
+	pOut->PrintMessage("Please enter filename: ");
+	n = pIn->GetString(pOut);
+	pOut->ClearStatusBar();
 }
 void SAVEAction::Execute()
 {
-	//Get a Pointer to the Output Interfaces
-}
-string getcolorname(color c) {
-		if (c == RED) return "red";
-		if (c == GREEN) return "green";
-		if (c == BLUE) return "blue";
-		if (c == YELLOW) return "yellow";
-		if (c == ORANGE) return "orange";
-		if (c == PINK) return "pink";
-		if(c == BROWN) return "brown";
-		if (c == CYAN) return "cyan";
-		if (c == MAGENTA) return "magenta";
-		if (c == BLACK) return "black";
-		if (c == WHITE) return "white";
-		return "unknown";
+	ReadActionParameters();	
+	ofstream file;
+	file.open(n + ".txt");
+	Output* pOut = pManager->GetOutput();
+	file << pManager->GetFigCount() << endl;
+	pManager->Saveall(file);
+	pOut->PrintMessage("File saved");
+	file.close();
 }

@@ -22,5 +22,13 @@ void CFigure::ChngFillClr(color Fclr)
 	FigGfxInfo.isFilled = true;
 	FigGfxInfo.FillClr = Fclr; 
 }
+int CFigure::getID() const
+{
+	return ID;
+}
+void CFigure::setID(int id)
+{
+	ID = (id>0);
+}
 int CFigure::getType() { return 0; }
 CFigure* CFigure::Clone() const { return nullptr; } // Default implementation
