@@ -24,6 +24,7 @@ void Rotate::Execute()
     Output* pOut = pManager->GetOutput();
     if (SelectedFig != NULL)
     {
+
         bool didRotate = SelectedFig->Rotation();
         pManager->UpdateInterface();
 
