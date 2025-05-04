@@ -48,7 +48,6 @@ void CCircle::MoveTo(Point destination)
 }
 void CCircle::shiftTo(int x, int y)
 {
-	// Shift the circle to a new position
 	int dx = x - Center.x;
 	int dy = y - Center.y;
 	P1.x += dx;

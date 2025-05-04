@@ -109,27 +109,21 @@ void ApplicationManager::deleteselectedfigure()
 {
 	int index = getSelectedFigureIndex();
 	if (index != -1) {
-		SelectedFig = NULL; 
-		for (int i = index; i < FigCount; i++) {
+		delete SelectedFig;
+		for (int i = index; i < FigCount; i++)
 			FigList[i] = FigList[i + 1];
-			delete FigList[FigCount];
-			FigList[FigCount] = NULL;
-			FigCount--;
-
-		}
+		FigCount--;
 	}
 }
 void ApplicationManager::deleteClipboard() {
 	int index = GetClipboardIndex();
 	if (index != -1) {
-		Clipboard = NULL;
-		for (int i = index; i < FigCount; i++) {
+		delete Clipboard;
+		for (int i = index; i < FigCount; i++)
 			FigList[i] = FigList[i + 1];
-			delete FigList[FigCount];
-			FigList[FigCount] = NULL;
 			FigCount--;
-		}
 	}
+	UpdateInterface();
 }
 
 void ApplicationManager::Saveall(ofstream& out)
@@ -267,6 +261,7 @@ int ApplicationManager::getSelectedFigureIndex() const
 			return i;
 		}
 	}
+	return -1; // Return -1 if no selected figure is found
 }
 
 int ApplicationManager::GetClipboardIndex() const
@@ -276,6 +271,7 @@ int ApplicationManager::GetClipboardIndex() const
 			return i;
 		}
 	}
+	return -1; // Return -1 if no selected figure is found
 }
 // It returns a pointer to the selected figure
 //==================================================================================//
