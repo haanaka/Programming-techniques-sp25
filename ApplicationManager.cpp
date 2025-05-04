@@ -225,6 +225,7 @@ CFigure* ApplicationManager::selectFigure(int x, int y) {
 	}
 	return nullptr;
 }
+void ApplicationManager::SetClipboard(CFigure* C) { Clipboard = C; }
 CFigure* ApplicationManager::SelectClipboardFigure(int x, int y) {
 	// Check if the point (x, y) is inside the selected figure
 	for (int i = FigCount-1; i >=0; i--) {

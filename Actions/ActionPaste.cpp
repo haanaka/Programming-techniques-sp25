@@ -65,6 +65,7 @@ void ActionPaste::Execute()
         pManager->AddFigure(PasteFigure);
         pManager->UpdateInterface();
     }
+    pManager->SetClipboard(nullptr);
 
 }
 /*  // Get references to manager components
