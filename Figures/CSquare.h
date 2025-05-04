@@ -14,7 +14,7 @@ public:
 	Point getCenter(Point& center) const;
 	void Save(ofstream& OutFile);
 	bool Rotation(); //Function belonging to the rotate class
-	CFigure* Clone() const;
+	CFigure* Clone() const override;
 };
 
 

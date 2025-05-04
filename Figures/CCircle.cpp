@@ -14,13 +14,15 @@ void CCircle::Draw(Output* pOut) const
 	pOut->DrawCircle(P1, P2, FigGfxInfo, Selected);
 }
 
+float DIFF(Point p1, Point p2);
 
 bool CCircle::IsPointInside(int x, int y) const
 {
 	// Check if the point (x, y) is inside the circle
 	int dx = x - Center.x;
 	int dy = y - Center.y;
-	return (dx * dx + dy * dy <= Radius * Radius);
+	float R = DIFF(P1, P2);
+	return (dx * dx + dy * dy <= R * R);
 }
 void CCircle::Save(ofstream& OutFile)
 {
@@ -48,6 +50,8 @@ void CCircle::MoveTo(Point destination)
 }
 void CCircle::shiftTo(int x, int y)
 {
+
+	// Shift the circle's center to the new coordinates
 	int dx = x - Center.x;
 	int dy = y - Center.y;
 	P1.x += dx;

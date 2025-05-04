@@ -15,7 +15,7 @@ public:
 	 void shiftTo(int x, int y);
 	 int getType();
 	 bool Rotation(); //Function belonging to the rotate class
-	 CFigure* Clone();
+	 CFigure* Clone() const override;
 };
 
 

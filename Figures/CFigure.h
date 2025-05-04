@@ -19,7 +19,7 @@ public:
 
 	void SetSelected(bool s);	//select/unselect the figure
 	bool IsSelected() const;	//check whether fig is selected
-	virtual CFigure* Clone() const; // Clone the figure
+	virtual CFigure* Clone() const=0; // Clone the figure
 	virtual void Draw(Output* pOut) const  = 0 ;		//Draw the figure
 	virtual int getType();	//get the type of the figure
 	virtual void shiftTo(int x, int y) = 0; //shift the figure to a new position
