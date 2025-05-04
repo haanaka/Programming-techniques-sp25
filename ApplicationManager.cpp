@@ -228,8 +228,10 @@ CFigure* ApplicationManager::selectFigure(int x, int y) {
 CFigure* ApplicationManager::SelectClipboardFigure(int x, int y) {
 	// Check if the point (x, y) is inside the selected figure
 	for (int i = FigCount-1; i >=0; i--) {
-		if (FigList[i]->IsPointInside(x, y)) {
-			if (Clipboard != NULL) {
+		if (FigList[i]->IsPointInside(x, y))
+		{
+			Clipboard = FigList[i];
+			if (Clipboard != nullptr) {
 				Clipboard->SetSelected(false);
 				Clipboard->Draw(pOut); //Deselect the previously selected figure
 			}
