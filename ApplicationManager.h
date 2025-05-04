@@ -47,6 +47,7 @@ public:
 
 	void SetSelectedFigure(CFigure* c);
 	CFigure* selectFigure(int x, int y); //Selects a figure given a point inside the figure
+	void SetClipboard(CFigure* C);
 	CFigure* SelectClipboardFigure(int x, int y);
 	int getSelectedFigureIndex() const; //Returns the index of the selected figure in the FigList
 	int GetClipboardIndex() const;
