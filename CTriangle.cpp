@@ -81,7 +81,7 @@ static Point RotatePoint90(const Point& P, const Point& C)
 	return R;
 }
 
-bool CTriangle::Rotation()
+void CTriangle::Rotation()
 {
 	//  Compute the triangle’s center
 	Point center;
@@ -114,7 +114,6 @@ bool CTriangle::Rotation()
 	P2 = pts[1];
 	P3 = pts[2];
 
-	return true;  // indicates the shape actually changed
 }
 CFigure* CTriangle::Clone() const
 {

@@ -1,4 +1,4 @@
-
+﻿
 #include "CHexagon.h"
 #include "../ApplicationManager.h"
 #include "../GUI/Output.h"
@@ -6,14 +6,15 @@
 #include <iostream>
 #include <string>
 
-CHexagon::CHexagon(Point  P, GfxInfo FigureGfxInfo) : CFigure(FigureGfxInfo)
+CHexagon::CHexagon(Point C, GfxInfo shapeGfx) : CFigure(shapeGfx)
 {
-	Center = P;
+	Center = C;
 }
 void CHexagon::Draw(Output* pOut) const
 {
-	pOut->DrawHexagon(Center, FigGfxInfo, Selected);
+		pOut->DrawHexagon(Center, FigGfxInfo, Selected);
 }
+
 double Abs(double x)
 {
 	return (x < 0) ? -x : x;
@@ -88,13 +89,15 @@ void CHexagon::shiftTo(int x, int y)
 	this->Center.x += dx;
 	this->Center.y += dy;
 }
-int CHexagon::getType() 
+int CHexagon::getType()
 {
 	return 3; // 3 for hexagon
 }
-bool CHexagon::Rotation()
+
+
+void CHexagon::setisrotated(bool r)
 {
-    return false;
+	isrotated = !isrotated;
 }
 CFigure* CHexagon::Clone() const
 {
@@ -107,4 +110,24 @@ color CHexagon::getdrawcolor() const
 color CHexagon::getfillcolor() const
 {
 	return FigGfxInfo.FillClr;
+}
+
+void CHexagon::Rotation()
+{
+	int* PX, * PY;
+	PX = new int[6];
+	PY = new int[6];
+
+	PX[0] = Center.x;               PY[0] = Center.y - 100;
+
+	PX[1] = Center.x + 50 * r3;  	PY[1] = Center.y - 50;
+
+	PX[2] = Center.x + 50 * r3;     PY[2] = Center.y + 50;
+
+	PX[3] = Center.x;               PY[3] = Center.y + 100;
+
+	PX[4] = Center.x - 50 * r3;     PY[4] = Center.y + 50;
+
+	PX[5] = Center.x - 50 * r3;     PY[5] = Center.y - 50;
+	
 }

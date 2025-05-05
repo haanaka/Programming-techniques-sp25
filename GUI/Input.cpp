@@ -226,14 +226,7 @@ ActionType Input::GetUserAction() const
 		//[3] User clicks on the status bar
 		return STATUS;
 
-		//[2] User clicks on the drawing area
-		if (y >= UI.ToolBarHeight && y < UI.height - UI.StatusBarHeight)
-		{
-			return DRAWING_AREA;
-		}
-
-		//[3] User clicks on the status bar
-		return STATUS;
+		
 	}
 else if (UI.InterfaceMode == MODE_PLAY)
 		//GUI is in PLAY mode
@@ -260,6 +253,10 @@ else if (UI.InterfaceMode == MODE_PLAY)
 		return SWITCH_TO_PLAY;	//just for now. This should be updated
 	}
 
+}
+ActionType Input::SwitchToPlayMode() {
+	return SWITCH_TO_PLAY
+		;
 }
 /////////////////////////////////
 

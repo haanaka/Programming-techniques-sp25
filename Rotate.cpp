@@ -3,44 +3,51 @@
 #include "ApplicationManager.h"
 #include "GUI/Input.h"
 #include "GUI/Output.h"
-
+#include "Figures/CFigure.h"
+#include "Figures/CHexagon.h"
 Rotate::Rotate(ApplicationManager* pApp) : Action(pApp)
 {
 };
 void Rotate::ReadActionParameters()
 {
-	int x, y; // Coordinates of the point clicked by the user
-	//Get a Pointer to the Input / Output Interfaces
-	Output* pOut = pManager->GetOutput();
-	Input* pIn = pManager->GetInput();
-	pOut->ClearStatusBar();
-	pOut->PrintMessage("Rotate: Select one figure to rotate clockwise by 90 degrees");
-	pIn->GetPointClicked(x, y); // Wait for user to click
+
 }
 void Rotate::Execute()
 {
-    int x, y;
+    int x=0, y=0;
 	ReadActionParameters();
-    CFigure* SelectedFig = pManager->getSelectedFigure();
-    Output* pOut = pManager->GetOutput();
-    if (SelectedFig != NULL)
+	const int figlist = pManager->GetFigCount();
+    CFigure* RotatedFigure=nullptr;
+	CFigure** FigList=new CFigure* [figlist];
+    for (int i = 0; i < figlist; i++) 
     {
-        bool didRotate = SelectedFig->Rotation();
-        pManager->UpdateInterface();
-        if (didRotate)
+        FigList[i] = pManager->getFigureI(i);
+    }
+  
+    Output* pOut = pManager->GetOutput();
+	Input* pIn = pManager->GetInput();
+    pOut->PrintMessage("Rotate: Select one figure to rotate clockwise by 90 degrees");
+	pIn->GetPointClicked(x, y); // Wait for user to click
+    for (int i = figlist - 1; i >= 0; i--)
+    {
+        if (FigList[i] != nullptr && FigList[i]->IsPointInside(x, y))
         {
-            pOut->PrintMessage("Figure rotated successfully.");
-            pManager->GetInput()->GetPointClicked(x, y); // Wait for user to click before clearing the message
+            RotatedFigure = FigList[i];
+            RotatedFigure->SetSelected(true);
+            break;
         }
-        else
-        {
-            pOut->PrintMessage("No effect on this shape.");
-            pManager->GetInput()->GetPointClicked(x, y); // Wait for user to click before clearing the message
-        }
+    }
+    if (RotatedFigure != NULL)
+    {
+       
+           RotatedFigure->Rotation();
+          pManager->UpdateInterface();
+       
     }
     else
     {
         pOut->PrintMessage("Select exactly one figure to rotate.");
         pManager->GetInput()->GetPointClicked(x, y); // Wait for user to click before clearing the message
     }
+	pManager->UpdateInterface();
 }

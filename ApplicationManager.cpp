@@ -1,4 +1,4 @@
-#include "ApplicationManager.h"
+﻿#include "ApplicationManager.h"
 #include "Actions\AddRectAction.h"
 #include "Actions\SelectAction.h"
 #include "Actions\ActionCopyOrCut.h"
@@ -10,6 +10,7 @@
 #include "Actions\dELETEAction.h"
 #include "Actions\ActionPaste.h"
 #include "Actions\SAVE.h"
+#include "ActionSwitchToPlayMode.h"
 /*#include "../../../source/repos/Programming-techniques-sp25/ApplicationManager.h"*/
 
 #include "Rotate.h"
@@ -93,6 +94,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			copyorCut = false;
 			pAct = new ActionCopyOrCut(this, false);
 			break;
+		case SWITCH_TO_PLAY:
+			pAct = new ActionSwitchToPlayMode(this);
+				break;
 		case STATUS:	//a click on the status bar ==> no action
 			return;
 	}
@@ -115,6 +119,11 @@ void ApplicationManager::deleteselectedfigure()
 		FigCount--;
 	}
 }
+void ApplicationManager::ClearSelectedFigure()
+{
+	delete SelectedFig;// assuming SelectedFig is the pointer you use
+	// (optionally) also clear any multi‐selection array/list here
+}
 void ApplicationManager::deleteClipboard() {
 	int index = GetClipboardIndex();
 	if (index != -1) {
@@ -126,13 +135,13 @@ void ApplicationManager::deleteClipboard() {
 	UpdateInterface();
 }
 
-void ApplicationManager::Saveall(ofstream& out)
+/*void ApplicationManager::Saveall(ofstream& out)
 {
 	for (int i = 0; i < FigCount; i++)
 	{
 		FigList[i]->Save(out);
 	}
-}
+}*/
 
 void ApplicationManager::clearallfigure()
 {
@@ -224,6 +233,14 @@ CFigure* ApplicationManager::selectFigure(int x, int y) {
 		SelectedFig = nullptr;
 	}
 	return nullptr;
+}
+CFigure* ApplicationManager::getFigureI(int index) const
+{
+	if (index >= 0 && index < FigCount)
+		return FigList[index];
+	else
+		return nullptr;
+
 }
 void ApplicationManager::SetClipboard(CFigure* C) { Clipboard = C; }
 CFigure* ApplicationManager::SelectClipboardFigure(int x, int y) {

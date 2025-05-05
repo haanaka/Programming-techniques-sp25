@@ -71,11 +71,10 @@ bool CRectangle::Rotation()
 	int sidelx = Corner2.x - Corner1.x;
 	int sidely = Corner2.y - Corner1.y;
 	//simple function to get new coordinates for rotated figure
-	Corner1.x = (M.x - sidely) / 2;
-	Corner1.y = (M.y + sidelx) / 2;
-	Corner2.x = (M.x + sidely) / 2;
-	Corner2.y = (M.y - sidelx) / 2;
-	return true;
+	Corner1.x = (M.x - sidely / 2);
+	Corner1.y = (M.y + sidelx / 2);
+	Corner2.x = (M.x + sidely / 2);
+	Corner2.y = (M.y - sidelx / 2);
 }
 CFigure* CRectangle::Clone() const
 {
