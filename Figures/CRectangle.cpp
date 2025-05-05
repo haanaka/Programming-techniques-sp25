@@ -1,6 +1,7 @@
 #include "CRectangle.h"
 #include "../ApplicationManager.h"
 #include "../GUI/Output.h"
+#include <iostream>
 
 CRectangle::CRectangle(Point P1, Point P2, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)
 {
@@ -54,6 +55,12 @@ void CRectangle::shiftTo(int x, int y)
 }
 int CRectangle::getType() {
 	return 5; // 5 for rectangle
+}
+void CRectangle::Save(ofstream& out)
+{
+	out << "RECT\t" << getID() << "\t" << Corner1.x << "\t" << Corner1.y << "\t" << Corner2.x<<"\t" << Corner2.y << "\t"
+		<< getdrawcolor << "\t" << getfillcolor << "\t" << endl;
+
 }
 bool CRectangle::Rotation()
 {

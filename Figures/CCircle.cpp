@@ -32,7 +32,8 @@ void CCircle::Save(ofstream& out)
 		fillcolor = getcolorname(FigGfxInfo.FillClr);
 	else
 		fillcolor = "no fill";
-	out << "CIRC\t" << getID() << "\t" << Center.x << "\t" << Center.y << "\t" << Radius << "\t" << getcolor << "\t" << fillcolor<< endl;
+	out << "CIRC\t" << getID() << "\t" << Center.x << "\t" << Center.y << "\t" 
+		<< Radius << "\t" << getcolor() << "\t" << fillcolor<< endl;
 }
 bool CCircle::Rotation()
 {
@@ -42,6 +43,7 @@ color CCircle::getcolor() const
 {
 	if (FigGfxInfo.isFilled)
 	return FigGfxInfo.FillClr;
+	return FigGfxInfo.DrawClr;
 }
 bool CCircle::isfilled() const
 {
@@ -49,7 +51,7 @@ bool CCircle::isfilled() const
 }
 string CCircle::getcolorname(color c) const
 {
-	return string();
+	return CFigure::getcolor(c);;
 }
 Point CCircle::getCenter(Point& center) const
 {
@@ -86,12 +88,4 @@ int CCircle::getType() {
 CFigure* CCircle::Clone() const
 {
 	return new CCircle(*this); // Create a new circle with the same properties
-}
-color CCircle::getdrawcolor() const
-{
-	return FigGfxInfo.DrawClr;
-}
-color CCircle::getfillcolor() const
-{
-	return FigGfxInfo.FillClr;
 }

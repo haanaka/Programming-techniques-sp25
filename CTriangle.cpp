@@ -2,6 +2,8 @@
 #include "GUI/Output.h"
 #include "Figures/CTtriangle.h"
 #include <iostream>
+#include <string>
+
 CTriangle::CTriangle(Point Point1, Point Point2, Point Point3, GfxInfo FigureGfxInfo) : CFigure(FigureGfxInfo)
 {
 	P1 = Point1;
@@ -35,9 +37,10 @@ bool CTriangle::IsPointInside(int x, int y) const
 	A3 = (rc3 + rc1 + r31) / 2;
 	return(A - (A1 + A2 + A3) < 0.01);
 }
-void CTriangle::Save(ofstream& OutFile)
+void CTriangle::Save(ofstream& out)
 {
-	cout << "Triangle" << "  " << P1.x << "  " << P2.x << "  " <<"  "<<P3.x << endl;
+	out << "TRIANGLE\t" << getID() << "\t" << P1.x << "\t" << P1.y << "\t" << P2.x << "\t" << P2.y << "\t" << P3.x << "\t" << P3.y << "\t"
+		<< getdrawcolor << "\t" << getfillcolor << endl;
 }
 Point CTriangle::getCenter(Point& center) const {
 	center.x = (P1.x + P2.x + P3.x) / 3;

@@ -21,9 +21,11 @@ Point CSquare::getCenter(Point& center) const {
 	center.y = Center.y;
 	return center;
 }
-void CSquare::Save(ofstream& OutFile)
+void CSquare::Save(ofstream& out)
 {
-	cout << "Square" << "  " << "  " << Center.x << "  " << Center.y << "  " << endl;
+	out << "SQUARE\t" << getID() << "\t" << Center.x << "\t" << Center.y << "\t"
+		<< getdrawcolor << "\t" << getfillcolor << "\t" << endl;
+
 }
 void CSquare::MoveTo(Point destination) {
 	Point Center;

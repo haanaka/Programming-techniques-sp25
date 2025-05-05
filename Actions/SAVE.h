@@ -5,7 +5,7 @@
 
 class SAVEAction : public Action
 {
-	string S;
+	string n;
 public:
 	SAVEAction(ApplicationManager* pApp);
 

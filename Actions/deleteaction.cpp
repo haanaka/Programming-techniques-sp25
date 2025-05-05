@@ -5,34 +5,21 @@
 
 dELETEAction::dELETEAction(ApplicationManager* pApp) : Action(pApp)
 {
-	
 }
 
 void dELETEAction::ReadActionParameters()
 {
-
 }
 
 void dELETEAction::Execute()
 {
-	Output* pOut = pManager->GetOutput();
-
-	if (pManager->getSelectedFigure()){
-		pOut->PrintMessage("Figure Deleted");
-		pManager->deleteselectedfigure();
-	}
-	else
-		pOut->PrintMessage("No figure selected");
-}
-void dELETEAction::Execute1()
-{
-	Output* pOut = pManager->GetOutput();
-
-	if (pManager->getCopyOrCut()) {
-		pOut->PrintMessage("Figure Deleted");
-		pManager->deleteClipboard();
-	}
-	else
-		pOut->PrintMessage("No figure selected");
-
+    Output* pOut = pManager->GetOutput();
+    if (pManager->getSelectedFigure() != NULL){
+        pOut->PrintMessage("Figure Deleted");
+        pManager->deleteselectedfigure();
+        pManager->UpdateInterface();
+    }
+    else{
+        pOut->PrintMessage("No figure selected");
+    }
 }

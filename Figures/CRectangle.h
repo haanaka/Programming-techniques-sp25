@@ -19,7 +19,7 @@ public:
 
 	int getType();
 	
-	void Save(ofstream& OutFile);
+	void Save(ofstream& out);
 
 	bool Rotation(); //Function belonging to the rotate class
 	CFigure* Clone() const override;

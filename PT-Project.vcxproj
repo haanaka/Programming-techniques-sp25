@@ -184,6 +184,7 @@
     <ClCompile Include="GUI\Input.cpp" />
     <ClCompile Include="GUI\Output.cpp" />
     <ClCompile Include="ApplicationManager.cpp" />
+    <ClCompile Include="Actions\LoadAction.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Actions\SAVE.cpp" />
     <ClCompile Include="Rotate.cpp" />
@@ -233,6 +234,7 @@
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="Actions\SAVE.h" />
+    <ClInclude Include="Actions\LoadAction.h" />
     <ClInclude Include="Rotate.h" />
   </ItemGroup>
   <ItemGroup>

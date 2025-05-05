@@ -3,7 +3,8 @@
 #include "../ApplicationManager.h"
 #include "../GUI/Output.h"
 #define r3 1.7320508075689
-#include<iostream>
+#include <iostream>
+#include <string>
 
 CHexagon::CHexagon(Point  P, GfxInfo FigureGfxInfo) : CFigure(FigureGfxInfo)
 {
@@ -55,9 +56,10 @@ bool CHexagon::IsPointInside(int x, int y) const
 	return (crossings % 2 == 1);
 
 }
-void CHexagon::Save(ofstream& OutFile)
+void CHexagon::Save(ofstream& out)
 {
-	cout << "HEX" << "  " << "  " << Center.x << "  " << Center.y << "  " << endl;
+	out << "HEX\t" << getID() << "\t" << Center.x << "\t" << Center.y << "\t"
+		<< getdrawcolor << "\t" << getfillcolor << "\t"<<endl;
 }
 Point CHexagon::getCenter(Point& center) const
 {
