@@ -64,6 +64,21 @@ void CHexagon::Save(ofstream& out)
 	out << "HEX\t" << getID() << "\t" << Center.x << "\t" << Center.y << "\t"
 		<< getdrawcolor << "\t" << getfillcolor << "\t"<<endl;
 }
+void CHexagon::Load(ifstream& Infile)
+{
+	string Drawcolor, Fillcolor;
+	Infile >> ID >> Center.x >> Center.y  >> Drawcolor >> Fillcolor;
+	FigGfxInfo.DrawClr = getdrawcolor();
+	if (Fillcolor == "No fill")
+		FigGfxInfo.isFilled = false;
+	else
+	{
+		FigGfxInfo.FillClr = getdrawcolor();
+		FigGfxInfo.isFilled = true;
+	}
+	Center.x = Center.x;
+	Center.y = Center.y;
+}
 Point CHexagon::getCenter(Point& center) const
 {
 	center.x = Center.x;

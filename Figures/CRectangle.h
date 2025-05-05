@@ -22,6 +22,7 @@ public:
 	void Rotation();
 	
 	void Save(ofstream& out);
+	void Load(ifstream& Infile);
 
 	CFigure* Clone() const override;
 	virtual color getdrawcolor() const;

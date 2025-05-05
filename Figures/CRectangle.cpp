@@ -64,6 +64,19 @@ void CRectangle::Save(ofstream& out)
 		<< getdrawcolor << "\t" << getfillcolor << "\t" << endl;
 
 }
+void CRectangle::Load(ifstream& Infile)
+{
+	string Drawcolor, Fillcolor;
+	Infile >> ID >> Corner1.x >> Corner1.y >> Corner2.x >> Corner2.y >> Drawcolor >> Fillcolor;
+	FigGfxInfo.DrawClr = getdrawcolor();
+	if (Fillcolor == "No fill")
+		FigGfxInfo.isFilled = false;
+	else
+	{
+		FigGfxInfo.FillClr = getdrawcolor();
+		FigGfxInfo.isFilled = true;
+	}
+}
 bool CRectangle::Rotation()
 {
 	Point M; //point M will be the middle of the selected figure

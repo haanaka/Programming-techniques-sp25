@@ -3,6 +3,7 @@
 #include "Figures/CTtriangle.h"
 #include <iostream>
 #include <string>
+#include <fstream>
 
 CTriangle::CTriangle(Point Point1, Point Point2, Point Point3, GfxInfo FigureGfxInfo) : CFigure(FigureGfxInfo)
 {
@@ -41,6 +42,20 @@ void CTriangle::Save(ofstream& out)
 {
 	out << "TRIANGLE\t" << getID() << "\t" << P1.x << "\t" << P1.y << "\t" << P2.x << "\t" << P2.y << "\t" << P3.x << "\t" << P3.y << "\t"
 		<< getdrawcolor << "\t" << getfillcolor << endl;
+}
+void CTriangle::Load(ifstream& Infile)
+{
+	string Drawcolor, Fillcolor;
+	Infile >> ID >> P1.x >> P1.y >> P2.x >> P2.y >> P3.x >> P3.y >> Drawcolor >> Fillcolor;
+	FigGfxInfo.DrawClr = getdrawcolor();
+	if (Fillcolor == "No fill")
+		FigGfxInfo.isFilled = false;
+	else
+	{
+		FigGfxInfo.FillClr = getdrawcolor();
+		FigGfxInfo.isFilled = true;
+	}
+
 }
 Point CTriangle::getCenter(Point& center) const {
 	center.x = (P1.x + P2.x + P3.x) / 3;

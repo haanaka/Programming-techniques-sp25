@@ -64,15 +64,13 @@ Point CCircle::getCenter(Point& center) const
 void CCircle::Load(ifstream& Infile)
 {
 	string Drawcolor, Fillcolor;
-
 	Infile >> ID >> Center.x >> Center.y >> Radius >> Drawcolor >> Fillcolor;
-
-	FigGfxInfo.DrawClr = getcolor;
+	FigGfxInfo.DrawClr = getcolor();
 	if (Fillcolor == "No fill")
 		FigGfxInfo.isFilled = false;
 	else
 	{
-		FigGfxInfo.FillClr = getcolor;
+		FigGfxInfo.FillClr = getcolor();
 		FigGfxInfo.isFilled = true;
 	}
 	Center.x = Center.x;
