@@ -27,6 +27,7 @@ enum ActionType //The actions supported (you can add more if needed)
 	SWITCH_TO_DRAW,	//Switch interface to Draw mode
 	SWITCH_TO_PLAY,	//Switch interface to Play mode
 	SWITCH_GAMEMODE,//Switch interface to Game mode
+	MATCHING_PAIRS,
 	EXIT,			//Exit
 	EMPTY,			//A click on empty place in the toolbar
 	DRAWING_AREA,	//A click on the drawing area
