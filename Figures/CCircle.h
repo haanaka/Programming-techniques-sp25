@@ -21,7 +21,7 @@ public:
 	Point getCenter(Point& center) const;
 	void Load(ifstream& Infile);
 	bool Rotation(); //Function belonging to the rotate class
-	virtual color& getcolor()const;
+	//virtual color& getcolor()const;
 	virtual bool isfilled()const;
 	string getcolorname(color c) const;
 };

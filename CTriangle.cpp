@@ -41,18 +41,18 @@ bool CTriangle::IsPointInside(int x, int y) const
 void CTriangle::Save(ofstream& out)
 {
 	out << "TRIANGLE\t" << getID() << "\t" << P1.x << "\t" << P1.y << "\t" << P2.x << "\t" << P2.y << "\t" << P3.x << "\t" << P3.y << "\t"
-		<< getdrawcolor << "\t" << getfillcolor << endl;
+		 << endl;
 }
 void CTriangle::Load(ifstream& Infile)
 {
 	string Drawcolor, Fillcolor;
 	Infile >> ID >> P1.x >> P1.y >> P2.x >> P2.y >> P3.x >> P3.y >> Drawcolor >> Fillcolor;
-	FigGfxInfo.DrawClr = getdrawcolor();
+	//FigGfxInfo.DrawClr = getdrawcolor();
 	if (Fillcolor == "No fill")
 		FigGfxInfo.isFilled = false;
 	else
 	{
-		FigGfxInfo.FillClr = getdrawcolor();
+		//FigGfxInfo.FillClr = getdrawcolor();
 		FigGfxInfo.isFilled = true;
 	}
 
@@ -134,9 +134,9 @@ CFigure* CTriangle::Clone() const
 {
 	return new CTriangle(*this);
 }
-color& CTriangle::getdrawcolor() const {
+/*color& CTriangle::getdrawcolor() const {
 	return FigGfxInfo.DrawClr;
 }
 color& CTriangle::getfillcolor() const {
 	return FigGfxInfo.FillClr;
-}
+}*/

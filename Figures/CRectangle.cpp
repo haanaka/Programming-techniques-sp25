@@ -61,19 +61,19 @@ int CRectangle::getType() {
 void CRectangle::Save(ofstream& out)
 {
 	out << "RECT\t" << getID() << "\t" << Corner1.x << "\t" << Corner1.y << "\t" << Corner2.x<<"\t" << Corner2.y << "\t"
-		<< getdrawcolor << "\t" << getfillcolor << "\t" << endl;
+		<< "\t" << endl;
 
 }
 void CRectangle::Load(ifstream& Infile)
 {
 	string Drawcolor, Fillcolor;
 	Infile >> ID >> Corner1.x >> Corner1.y >> Corner2.x >> Corner2.y >> Drawcolor >> Fillcolor;
-	FigGfxInfo.DrawClr = getdrawcolor();
+	//FigGfxInfo.DrawClr = getdrawcolor();
 	if (Fillcolor == "No fill")
 		FigGfxInfo.isFilled = false;
 	else
 	{
-		FigGfxInfo.FillClr = getdrawcolor();
+		//FigGfxInfo.FillClr = getdrawcolor();
 		FigGfxInfo.isFilled = true;
 	}
 }
@@ -95,9 +95,9 @@ CFigure* CRectangle::Clone() const
 {
 	return new CRectangle(*this);
 }
-color& CRectangle::getdrawcolor()const {
+/*color& CRectangle::getdrawcolor()const {
 	return FigGfxInfo.DrawClr;
 }
 color& CRectangle::getfillcolor()const {
 	return  FigGfxInfo.FillClr;
-}
+}*/

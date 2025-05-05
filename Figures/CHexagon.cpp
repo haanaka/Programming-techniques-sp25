@@ -62,18 +62,18 @@ bool CHexagon::IsPointInside(int x, int y) const
 void CHexagon::Save(ofstream& out)
 {
 	out << "HEX\t" << getID() << "\t" << Center.x << "\t" << Center.y << "\t"
-		<< getdrawcolor << "\t" << getfillcolor << "\t"<<endl;
+		 << "\t"<<endl;
 }
 void CHexagon::Load(ifstream& Infile)
 {
 	string Drawcolor, Fillcolor;
 	Infile >> ID >> Center.x >> Center.y  >> Drawcolor >> Fillcolor;
-	FigGfxInfo.DrawClr = getdrawcolor();
+	//FigGfxInfo.DrawClr = getdrawcolor();
 	if (Fillcolor == "No fill")
 		FigGfxInfo.isFilled = false;
 	else
 	{
-		FigGfxInfo.FillClr = getdrawcolor();
+		//FigGfxInfo.FillClr = getdrawcolor();
 		FigGfxInfo.isFilled = true;
 	}
 	Center.x = Center.x;
@@ -120,14 +120,14 @@ CFigure* CHexagon::Clone() const
 {
 	return new CHexagon(*this);
 }
-color& CHexagon::getdrawcolor() const
+/*color& CHexagon::getdrawcolor() const
 {
 	return FigGfxInfo.DrawClr;
 }
 color& CHexagon::getfillcolor() const
 {
 	return FigGfxInfo.FillClr;
-}
+}*/
 
 bool CHexagon::Rotation()
 {
