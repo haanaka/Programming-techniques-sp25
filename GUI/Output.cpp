@@ -357,6 +357,8 @@ void Output::changecolor(color c) const
 	pWind->SetBrush(UI.BkGrndColor);
 	pWind->DrawRectangle(0, UI.ToolBarHeight + UI.LineUnderTBWidth, UI.width, UI.height - UI.StatusBarHeight);
 }
+
+
 //////////////////////////////////////////////////////////////////////////////////////////
 
 Output::~Output() {}

@@ -20,7 +20,7 @@ private:
 	//Pointers to Input and Output classes
 	Input *pIn;
 	Output *pOut;
-
+	bool isExit;
 	CFigure* Clipboard;  //Pointer to copied/cut figure
 	bool copyorCut;  //true if the action is copy and false if it is cut
 
@@ -37,7 +37,8 @@ public:
 	void Saveall(ofstream& out ); //Saves all figures to a file
 
 	void clearallfigure(); //Clears all figures
-	
+	void Exit();
+	bool shouldExit()const;
 	/// Deselects any currently selected figure
 	void ClearSelectedFigure();
 

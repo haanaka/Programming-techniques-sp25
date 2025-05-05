@@ -5,7 +5,7 @@ CCircle::CCircle(Point Point1,Point Point2, int r, GfxInfo FigureGfxInfo) : CFig
 {
 	P1 = Point1;
 	P2 = Point2;
-	Center = Point1;
+	Center = P1;
 	Radius = r;
 }
 void CCircle::Draw(Output* pOut) const
@@ -33,14 +33,15 @@ Point CCircle::getCenter(Point& center) const
 }
 void CCircle::MoveTo(Point destination)
 {
-
-	Point Center;
-	Center.x = this->Center.x;
-	Center.y = this->Center.y;
+	// Move the circle to the new center
 	int dx = destination.x - Center.x;
 	int dy = destination.y - Center.y;
-	this->Center.x += dx;
-	this->Center.y += dy;
+	P1.x += dx;
+	P1.y += dy;
+	P2.x += dx;
+	P2.y += dy;
+	Center.x += dx;
+	Center.y += dy;
 }
 void CCircle::shiftTo(int x, int y)
 {

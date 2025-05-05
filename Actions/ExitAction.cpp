@@ -18,10 +18,11 @@ void ExitAction::Execute()
 	string answer = pIn->GetString(pOut);
 	if (answer == "y" || answer == "Y") {
 		pOut->PrintMessage("Exiting the application...");
+		pManager->Exit();
+		
 	}
 	else {
 		pOut->PrintMessage("Exit cancelled.");
 	}
-	
 	
 }

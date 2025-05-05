@@ -156,6 +156,18 @@ void ApplicationManager::clearallfigure()
 	
 }
 
+
+void ApplicationManager::Exit()
+{
+	isExit = true;
+}
+
+bool ApplicationManager::shouldExit() const
+{
+	return isExit;
+}
+
+
 //==================================================================================//
 //						Figures Management Functions								//
 //==================================================================================//

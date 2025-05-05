@@ -20,7 +20,7 @@ void MatchingPairsAction::Execute()
 	Output* pOut = pManager->GetOutput();
 	Input* pIn = pManager->GetInput();
 	Point clickpoint;
-	pOut->PrintMessage("Select the first figure to swap");
+	pOut->PrintMessage("Select the first figure ");
 	while (true) {
 		pIn->GetPointClicked(clickpoint.x, clickpoint.y);
 		FirstFigure = pManager->selectFigure(clickpoint.x, clickpoint.y);
@@ -31,7 +31,7 @@ void MatchingPairsAction::Execute()
 		}
 		pOut->PrintMessage("No figure selected, please select a figure");
 	}
-	pOut->PrintMessage("Select the second figure to swap");
+	pOut->PrintMessage("Select the second figure ");
 	while (true) {
 		pIn->GetPointClicked(clickpoint.x, clickpoint.y);
 		SecondFigure = pManager->selectFigure(clickpoint.x, clickpoint.y);
@@ -51,6 +51,7 @@ void MatchingPairsAction::Execute()
 	if (isMatch) {
 		score++;
 		pOut->PrintMessage(" Excellent Correct! Score:" + to_string(score));
+		pManager->deleteselectedfigure();
 	}
 	else {
 		score--;

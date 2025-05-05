@@ -10,7 +10,7 @@ private:
 	Point Center;
 	int Radius;
 public:
-	CCircle(Point ,Point, int r, GfxInfo FigureGfxInfo);
+	CCircle(Point ,Point, int r,GfxInfo FigureGfxInfo);
 	virtual void Draw(Output* pOut) const;
 	bool IsPointInside(int x, int y) const;
 	void Save(ofstream& OutFile);

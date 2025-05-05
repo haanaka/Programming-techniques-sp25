@@ -25,7 +25,7 @@ public:
 	void Drawsquare(Point P1,GfxInfo SqrGfxInfo, bool selected) const; //Draw a square
 	void DrawHexagon(Point P, GfxInfo HexGfxInfo, bool selected) const; //Draw a hexagon
 	void changecolor(color c) const; //Change the color of the figure
-
+	
 	///Make similar functions for drawing all other figure types.
 
 	void PrintMessage(string msg) const;	//Print a message on Status bar

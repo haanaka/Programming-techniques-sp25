@@ -53,6 +53,7 @@ void AddSwapAction::Execute()
    SecondFigure->getCenter(center2);
 	FirstFigure->MoveTo(center2);
 	SecondFigure->MoveTo(center1);
+   
 	pManager->GetOutput()->PrintMessage("No figure selected, please select a figure");
 	pManager->UpdateInterface();
 	pOut->PrintMessage("Figure swapped");
