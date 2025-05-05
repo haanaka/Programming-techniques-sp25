@@ -33,18 +33,18 @@ void CCircle::Save(ofstream& out)
 	else
 		fillcolor = "no fill";
 	out << "CIRC\t" << getID() << "\t" << Center.x << "\t" << Center.y << "\t" 
-		<< Radius << "\t" << getcolor << "\t" << fillcolor<< endl;
+		<< Radius << "\t" << endl;
 }
 bool CCircle::Rotation()
 {
 	return false;
 }
-color& CCircle::getcolor() const
+/*color& CCircle::getcolor() const
 {
 	if (FigGfxInfo.isFilled)
 	return FigGfxInfo.FillClr;
 	return FigGfxInfo.DrawClr;
-}
+}*/
 bool CCircle::isfilled() const
 {
 	return FigGfxInfo.isFilled;
@@ -64,12 +64,12 @@ void CCircle::Load(ifstream& Infile)
 {
 	string Drawcolor, Fillcolor;
 	Infile >> ID >> Center.x >> Center.y >> Radius >> Drawcolor >> Fillcolor;
-	FigGfxInfo.DrawClr = getcolor();
+	//FigGfxInfo.DrawClr = getcolor();
 	if (Fillcolor == "No fill")
 		FigGfxInfo.isFilled = false;
 	else
 	{
-		FigGfxInfo.FillClr = getcolor();
+		//FigGfxInfo.FillClr = getcolor();
 		FigGfxInfo.isFilled = true;
 	}
 	Center.x = Center.x;

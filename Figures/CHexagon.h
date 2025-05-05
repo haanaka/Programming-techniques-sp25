@@ -20,8 +20,8 @@ public:
 	void setisrotated(bool r);
 
 
-	color& getdrawcolor() const;
-	color& getfillcolor() const;
+	//color& getdrawcolor() const;
+	//color& getfillcolor() const;
 
 };
 
