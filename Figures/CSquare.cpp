@@ -18,7 +18,10 @@ bool CSquare::IsPointInside(int x, int y) const
 	return(x >= Center.x - 37.5 &&x <= Center.x + 37.5 &&y >= Center.y - 37.5 &&y <= Center.y + 37.5) ;
 
 }
-bool CSquare::Rotation(){}
+bool CSquare::Rotation()
+{
+	return false;
+}
 Point CSquare::getCenter(Point& center) const {
 	center.x = Center.x;
 	center.y = Center.y;

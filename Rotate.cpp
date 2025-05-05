@@ -40,14 +40,19 @@ void Rotate::Execute()
     if (RotatedFigure != NULL)
     {
        
-           RotatedFigure->Rotation();
+          bool is= RotatedFigure->Rotation();
+		  if (is)
+			  pOut->PrintMessage("Figure rotated successfully.");
+		  else
+			  pOut->PrintMessage("Figure cannot be rotated.");
           pManager->UpdateInterface();
        
     }
     else
     {
         pOut->PrintMessage("Select exactly one figure to rotate.");
-        pManager->GetInput()->GetPointClicked(x, y); // Wait for user to click before clearing the message
     }
-	pManager->UpdateInterface();
+        pManager->GetInput()->GetPointClicked(x, y); // Wait for user to click before clearing the message
+		pManager->UpdateInterface();
+		
 }
