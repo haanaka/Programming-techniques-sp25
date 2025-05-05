@@ -21,7 +21,7 @@ public:
 	
 	void Save(ofstream& OutFile);
 
-	bool Rotation(); //Function belonging to the rotate class
-	CFigure* Clone() const;
+	void Rotation(); //Function belonging to the rotate class
+	CFigure* Clone() const override;
 };
 #endif

@@ -38,6 +38,9 @@ public:
 
 	void clearallfigure(); //Clears all figures
 	
+	/// Deselects any currently selected figure
+	void ClearSelectedFigure();
+
 	// -- Figures Management Functions
 	void AddFigure(CFigure* pFig);          //Adds a new figure to the FigList
 	CFigure *GetFigure(int x, int y) const; //Search for a figure given a point inside the figure
@@ -47,6 +50,7 @@ public:
 
 	void SetSelectedFigure(CFigure* c);
 	CFigure* selectFigure(int x, int y); //Selects a figure given a point inside the figure
+	CFigure* getFigureI(int index) const;
 	void SetClipboard(CFigure* C);
 	CFigure* SelectClipboardFigure(int x, int y);
 	int getSelectedFigureIndex() const; //Returns the index of the selected figure in the FigList

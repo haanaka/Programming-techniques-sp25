@@ -1,4 +1,4 @@
-#include "ApplicationManager.h"
+﻿#include "ApplicationManager.h"
 #include "Actions\AddRectAction.h"
 #include "Actions\SelectAction.h"
 #include "Actions\ActionCopyOrCut.h"
@@ -115,6 +115,11 @@ void ApplicationManager::deleteselectedfigure()
 		FigCount--;
 	}
 }
+void ApplicationManager::ClearSelectedFigure()
+{
+	delete SelectedFig;// assuming SelectedFig is the pointer you use
+	// (optionally) also clear any multi‐selection array/list here
+}
 void ApplicationManager::deleteClipboard() {
 	int index = GetClipboardIndex();
 	if (index != -1) {
@@ -224,6 +229,14 @@ CFigure* ApplicationManager::selectFigure(int x, int y) {
 		SelectedFig = nullptr;
 	}
 	return nullptr;
+}
+CFigure* ApplicationManager::getFigureI(int index) const
+{
+	if (index >= 0 && index < FigCount)
+		return FigList[index];
+	else
+		return nullptr;
+
 }
 void ApplicationManager::SetClipboard(CFigure* C) { Clipboard = C; }
 CFigure* ApplicationManager::SelectClipboardFigure(int x, int y) {

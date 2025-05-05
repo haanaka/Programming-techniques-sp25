@@ -314,13 +314,13 @@ void Output::DrawHexagon(Point P, GfxInfo HexGfxInfo, bool selected) const
 
 	PX[1] = P.x + 50;	PY[1] = P.y + 50 * r3;
 
-	PX[2] = P.x-50;     PY[2] = P.y+50*r3;
-
+	PX[2] = P.x-50;     PY[2] = P.y + 50 * r3;
+	 
 	PX[3] = P.x-100;    PY[3] = P.y;
 
-	PX[4] = P.x-50;     PY[4] = P.y-50*r3;
+	PX[4] = P.x-50;     PY[4] = P.y - 50 * r3;
 
-	PX[5] = P.x+50;     PY[5] = P.y-50*r3;
+	PX[5] = P.x+50;     PY[5] = P.y - 50 * r3;
 
 	color DrawingClr;
 	if (selected)

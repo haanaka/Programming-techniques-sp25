@@ -32,3 +32,4 @@ void CFigure::setID(int id)
 }
 int CFigure::getType() { return 0; }
 CFigure* CFigure::Clone() const { return nullptr; } // Default implementation
+void CFigure::Rotation() {} // Default implementation

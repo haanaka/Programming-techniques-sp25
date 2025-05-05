@@ -11,6 +11,7 @@ protected:
 	int ID;		//Each figure has an ID
 	bool Selected;	//true if the figure is selected.
 	GfxInfo FigGfxInfo;	//Figure graphics info
+
 	
 	/// Add more parameters if needed.
 
@@ -28,7 +29,7 @@ public:
 	virtual bool IsPointInside(int x, int y) const=0;
 	virtual void MoveTo(Point destination)=0;
 	virtual Point getCenter(Point& center) const = 0; 
-	virtual bool Rotation() = 0;//Function belonging to the rotate class
+	virtual void Rotation()=0;//Function belonging to the rotate class
 	int getID()const;
 	void setID(int id);
 	//check if a point is inside the figure
