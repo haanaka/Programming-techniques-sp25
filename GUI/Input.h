@@ -24,6 +24,8 @@ public:
 
 	ActionType GetUserAction() const; //Read the user click and map to an action
 
+	ActionType SwitchToPlayMode();
+
 	~Input();
 };
 

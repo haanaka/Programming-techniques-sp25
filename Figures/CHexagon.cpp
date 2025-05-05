@@ -129,5 +129,4 @@ void CHexagon::Rotation()
 
 	PX[5] = Center.x - 50 * r3;     PY[5] = Center.y - 50;
 	
-
 }

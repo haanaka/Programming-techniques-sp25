@@ -10,6 +10,7 @@
 #include "Actions\dELETEAction.h"
 #include "Actions\ActionPaste.h"
 #include "Actions\SAVE.h"
+#include "ActionSwitchToPlayMode.h"
 /*#include "../../../source/repos/Programming-techniques-sp25/ApplicationManager.h"*/
 
 #include "Rotate.h"
@@ -93,6 +94,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			copyorCut = false;
 			pAct = new ActionCopyOrCut(this, false);
 			break;
+		case SWITCH_TO_PLAY:
+			pAct = new ActionSwitchToPlayMode(this);
+				break;
 		case STATUS:	//a click on the status bar ==> no action
 			return;
 	}
