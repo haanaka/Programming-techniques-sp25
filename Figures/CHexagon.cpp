@@ -102,6 +102,15 @@ CFigure* CHexagon::Clone() const
 {
 	return new CHexagon(*this);
 }
+color CHexagon::getdrawcolor() const
+{
+	return FigGfxInfo.DrawClr;
+}
+color CHexagon::getfillcolor() const
+{
+	return FigGfxInfo.FillClr;
+}
+}
 void CHexagon::Rotation()
 {
 	int* PX, * PY;

@@ -20,15 +20,21 @@ public:
 
 	void SetSelected(bool s);	//select/unselect the figure
 	bool IsSelected() const;	//check whether fig is selected
-	virtual CFigure* Clone() const; // Clone the figure
+	virtual CFigure* Clone() const=0; // Clone the figure
 	virtual void Draw(Output* pOut) const  = 0 ;		//Draw the figure
 	virtual int getType();	//get the type of the figure
 	virtual void shiftTo(int x, int y) = 0; //shift the figure to a new position
 	void ChngDrawClr(color Dclr);	//changes the figure's drawing color
 	void ChngFillClr(color Fclr);	//changes the figure's filling color
+	int getID() const;
+	void setID(int id);
 	virtual bool IsPointInside(int x, int y) const=0;
 	virtual void MoveTo(Point destination)=0;
 	virtual Point getCenter(Point& center) const = 0; 
+	virtual bool Rotation() = 0;
+	virtual color getdrawcolor() const = 0;
+	virtual color getfillcolor()const = 0;
+	//Function belonging to the rotate class
 	virtual void Rotation()=0;//Function belonging to the rotate class
 	int getID()const;
 	void setID(int id);
@@ -39,7 +45,7 @@ public:
 	///Decide the parameters that you should pass to each function	
 
 
-	virtual void Save(ofstream &OutFile) = 0;	//Save the figure parameters to the file
+	//virtual void Save(ofstream &OutFile) = 0;	//Save the figure parameters to the file
 	//virtual void Load(ifstream &Infile) = 0;	//Load the figure parameters to the file
 
 	//virtual void PrintInfo(Output* pOut) = 0;	//print all figure info on the status bar
