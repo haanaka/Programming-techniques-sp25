@@ -1,7 +1,6 @@
 #include "CRectangle.h"
 #include "../ApplicationManager.h"
 #include "../GUI/Output.h"
-#include <iostream>
 
 CRectangle::CRectangle(Point P1, Point P2, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)
 {
@@ -56,34 +55,28 @@ void CRectangle::shiftTo(int x, int y)
 int CRectangle::getType() {
 	return 5; // 5 for rectangle
 }
-void CRectangle::Save(ofstream& OutFile)
-{
-	cout << "RECT" << "  " << "  " << Corner1.x << "  " << Corner1.y << "  " << Corner2.x << "  " << Corner2.y << "  " << endl;
-}
 bool CRectangle::Rotation()
 {
 	Point M; //point M will be the middle of the selected figure
 	M.y = (Corner1.y + Corner2.y) / 2; //since rectangle is symetrical you get the y coordinate of the middle point by dividing the sum of 2 CORNERS that are on the same VERTICAL LINE by 2
 	M.x = (Corner1.x + Corner2.x) / 2; //same is done with the x coordinate
-	//an easier way to get the coordinates of the middle point was to sum all the coordinates and divided them by them by 4 but I am using the data members corners that my friend already declared in rectangel.h
+	//an easier way to get the coordinates of the middle point was to sum all the coordinates and divided them by them by 4 but i am using the data members corners that my friend already declared in rectangel.h
 	int sidelx = Corner2.x - Corner1.x;
 	int sidely = Corner2.y - Corner1.y;
 	//simple function to get new coordinates for rotated figure
-	if (sidelx < 0)
-	{
-		sidelx = -sidelx;
-	}
-	if (sidely < 0)
-	{
-		sidely = -sidely;
-	}
-	Corner1.x = M.x + ((sidely)/2);
-	Corner1.y = M.y + ((sidelx)/2);
-	Corner2.x = M.x - ((sidely)/2);
-	Corner2.y = M.y - ((sidelx)/2);
+	Corner1.x = (M.x - sidely) / 2;
+	Corner1.y = (M.y + sidelx) / 2;
+	Corner2.x = (M.x + sidely) / 2;
+	Corner2.y = (M.y - sidelx) / 2;
 	return true;
 }
 CFigure* CRectangle::Clone() const
 {
 	return new CRectangle(*this);
+}
+color CRectangle::getdrawcolor()const {
+	return FigGfxInfo.DrawClr;
+}
+color CRectangle::getfillcolor()const {
+	return  FigGfxInfo.FillClr;
 }

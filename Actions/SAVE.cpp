@@ -12,11 +12,7 @@ SAVEAction::SAVEAction(ApplicationManager* pApp) : Action(pApp)
 }
 void SAVEAction::ReadActionParameters()
 {
-	Output* pOut = pManager->GetOutput();
-	Input* pIn = pManager->GetInput();
-	pOut->PrintMessage("Please enter filename: ");
-	n = pIn->GetString(pOut);
-	pOut->ClearStatusBar();
+	//No parameters to read from the user
 }
 void SAVEAction::Execute()
 {

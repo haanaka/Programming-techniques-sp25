@@ -4,6 +4,7 @@
 #include "SelectAction.h"
 #include "AddRectAction.h"
 #include "AddTriAction.h"
+#include "..\ApplicationManager.h"
 
 
 ActionPaste::ActionPaste(ApplicationManager* pApp) : Action(pApp)
@@ -16,7 +17,7 @@ void ActionPaste::ReadActionParameters()
 }
 void ActionPaste::Execute()
 {
-	Action* pAct = NULL;
+    dELETEAction* pAct = NULL;
 	Output* pOut = pManager->GetOutput();
 	Input* pIn = pManager->GetInput();
 	CFigure* pClipboard = pManager->GetClipboard();
@@ -31,22 +32,39 @@ void ActionPaste::Execute()
 	pOut->PrintMessage("Click where you want to paste the figure");
 	pIn->GetPointClicked(x, y);
     if (pManager->getCopyOrCut()) {
+        if (pOriginal == nullptr)
+        {
+            pOut->PrintMessage("no shape selected,click to return");
+            pIn->GetPointClicked(x, y);
+            return;
+        }
         CFigure* PasteFigure = pOriginal->Clone();
         PasteFigure->shiftTo(x, y);
         PasteFigure->SetSelected(false);
 		pClipboard->SetSelected(false);
+	
         pManager->AddFigure(PasteFigure);
         pManager->UpdateInterface();
     }
     else
     {
+        if (pOriginal == nullptr)
+        {
+            pOut->PrintMessage("no shape selected,click to return");
+            pIn->GetPointClicked(x, y);
+            return;
+        }
+
+
         CFigure* PasteFigure = pOriginal->Clone();
         PasteFigure->shiftTo(x, y);
         PasteFigure->SetSelected(false);
 		pClipboard->SetSelected(false); 
+        pManager->deleteClipboard();
         pManager->AddFigure(PasteFigure);
         pManager->UpdateInterface();
     }
+    pManager->SetClipboard(nullptr);
 
 }
 /*  // Get references to manager components

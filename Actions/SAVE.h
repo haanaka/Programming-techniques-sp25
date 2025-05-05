@@ -5,14 +5,14 @@
 
 class SAVEAction : public Action
 {
-	string n;
+	string S;
 public:
 	SAVEAction(ApplicationManager* pApp);
 
-	void ReadActionParameters();
+	virtual void ReadActionParameters();
+	string getcolorname(color c);
 
-
-	void Execute();
+	virtual void Execute();
 
 };
 
