@@ -58,6 +58,7 @@ Point CCircle::getCenter(Point& center) const
 {
 	center.x = Center.x;
 	center.y = Center.y;
+
 	return center;
 }
 void CCircle::Load(ifstream& Infile)
@@ -80,6 +81,7 @@ void CCircle::Load(ifstream& Infile)
 }
 void CCircle::MoveTo(Point destination)
 {
+
 	Point Center;
 	Center.x = this->Center.x;
 	Center.y = this->Center.y;

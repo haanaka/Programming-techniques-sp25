@@ -12,6 +12,7 @@
 #include "Actions\SAVE.h"
 #include "ActionSwitchToPlayMode.h"
 #include "Actions\LoadAction.h"
+#include"Actions/ExitAction.h"
 /*#include "../../../source/repos/Programming-techniques-sp25/ApplicationManager.h"*/
 
 #include "Rotate.h"
@@ -79,6 +80,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new Rotate(this);
 			break;
 		case EXIT:
+			pAct = new ExitAction(this);
 			///create ExitAction here
 			break;
 		case LOAD:

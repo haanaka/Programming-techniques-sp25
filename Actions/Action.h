@@ -3,6 +3,7 @@
 
 #include "..\DefS.h"
 
+
 class ApplicationManager; //forward class declaration
 
 

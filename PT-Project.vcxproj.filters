@@ -193,8 +193,16 @@
     <ClCompile Include="Actions\SAVE.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
-    <ClCompile Include="Actions\MatchingPairsAction.cpp" />
-    <ClCompile Include="ActionSwitchToPlayMode.cpp" />
+    <ClCompile Include="Actions\MatchingPairsAction.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\ExitAction.cpp" />
+    <ClCompile Include="ActionSwitchToPlayMode.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionSwitchToDrawMode.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -327,8 +335,16 @@
     <ClInclude Include="Actions\dELETEAction.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
-    <ClInclude Include="Actions\MatchingPairsAction.h" />
-    <ClInclude Include="ActionSwitchToPlayMode.h" />
+    <ClInclude Include="Actions\MatchingPairsAction.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ExitAction.h" />
+    <ClInclude Include="ActionSwitchToPlayMode.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionSwitchToDrawMode.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
