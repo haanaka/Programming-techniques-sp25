@@ -4,6 +4,8 @@
 #include "..\defs.h"
 #include "..\GUI\Output.h"
 
+
+
 //Base class for all figures
 class CFigure
 {
@@ -31,11 +33,9 @@ public:
 	virtual bool IsPointInside(int x, int y) const=0;
 	virtual void MoveTo(Point destination)=0;
 	virtual Point getCenter(Point& center) const = 0; 
-	virtual void Rotation()=0;
-	virtual color getdrawcolor() const = 0;
-	virtual color getfillcolor()const = 0;
-	//Function belonging to the rotate class
-	
+	virtual bool Rotation() = 0;//Function belonging to the rotate class
+	virtual string getcolor(color c)const;
+	virtual color getstringcolor(string c)const;
 	//check if a point is inside the figure
 	///The following functions should be supported by the figure class
 	///It should be overridden by each inherited figure
@@ -43,8 +43,8 @@ public:
 	///Decide the parameters that you should pass to each function	
 
 
-	//virtual void Save(ofstream &OutFile) = 0;	//Save the figure parameters to the file
-	//virtual void Load(ifstream &Infile) = 0;	//Load the figure parameters to the file
+	virtual void Save(ofstream &OutFile) = 0;	//Save the figure parameters to the file
+	virtual void Load(ifstream &Infile) = 0;	//Load the figure parameters to the file
 
 	//virtual void PrintInfo(Output* pOut) = 0;	//print all figure info on the status bar
 };

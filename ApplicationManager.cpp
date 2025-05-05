@@ -11,6 +11,7 @@
 #include "Actions\ActionPaste.h"
 #include "Actions\SAVE.h"
 #include "ActionSwitchToPlayMode.h"
+#include "Actions\LoadAction.h"
 #include"Actions/ExitAction.h"
 /*#include "../../../source/repos/Programming-techniques-sp25/ApplicationManager.h"*/
 
@@ -82,6 +83,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new ExitAction(this);
 			///create ExitAction here
 			break;
+		case LOAD:
+			pAct = new LoadAction(this);
+			break;
 		case PASTE:
 			pAct = new ActionPaste(this);
 			break;
@@ -137,13 +141,13 @@ void ApplicationManager::deleteClipboard() {
 	UpdateInterface();
 }
 
-/*void ApplicationManager::Saveall(ofstream& out)
+void ApplicationManager::Saveall(ofstream& out)
 {
 	for (int i = 0; i < FigCount; i++)
 	{
 		FigList[i]->Save(out);
 	}
-}*/
+}
 
 void ApplicationManager::clearallfigure()
 {

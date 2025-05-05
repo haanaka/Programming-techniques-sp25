@@ -1,6 +1,9 @@
 #include "CCircle.h"
 #include "../ApplicationManager.h"
 #include "../GUI/Output.h"
+#include <iostream>
+#include <fstream>
+
 CCircle::CCircle(Point Point1,Point Point2, int r, GfxInfo FigureGfxInfo) : CFigure(FigureGfxInfo)
 {
 	P1 = Point1;
@@ -23,13 +26,56 @@ bool CCircle::IsPointInside(int x, int y) const
 	float R = DIFF(P1, P2);
 	return (dx * dx + dy * dy <= R * R);
 }
-
+void CCircle::Save(ofstream& out)
+{
+	string fillcolor;
+	if (FigGfxInfo.isFilled)
+		fillcolor = getcolorname(FigGfxInfo.FillClr);
+	else
+		fillcolor = "no fill";
+	out << "CIRC\t" << getID() << "\t" << Center.x << "\t" << Center.y << "\t" 
+		<< Radius << "\t" << getcolor << "\t" << fillcolor<< endl;
+}
+bool CCircle::Rotation()
+{
+	return false;
+}
+color CCircle::getcolor() const
+{
+	if (FigGfxInfo.isFilled)
+	return FigGfxInfo.FillClr;
+	return FigGfxInfo.DrawClr;
+}
+bool CCircle::isfilled() const
+{
+	return FigGfxInfo.isFilled;
+}
+string CCircle::getcolorname(color c) const
+{
+	return CFigure::getcolor(c);;
+}
 Point CCircle::getCenter(Point& center) const
 {
 	center.x = Center.x;
 	center.y = Center.y;
 
 	return center;
+}
+void CCircle::Load(ifstream& Infile)
+{
+	string Drawcolor, Fillcolor;
+	Infile >> ID >> Center.x >> Center.y >> Radius >> Drawcolor >> Fillcolor;
+	FigGfxInfo.DrawClr = getcolor();
+	if (Fillcolor == "No fill")
+		FigGfxInfo.isFilled = false;
+	else
+	{
+		FigGfxInfo.FillClr = getcolor();
+		FigGfxInfo.isFilled = true;
+	}
+	Center.x = Center.x;
+	Center.y= Center.y;
+	Radius = Radius;
 }
 void CCircle::MoveTo(Point destination)
 {
@@ -62,12 +108,4 @@ int CCircle::getType() {
 CFigure* CCircle::Clone() const
 {
 	return new CCircle(*this); // Create a new circle with the same properties
-}
-color CCircle::getdrawcolor() const
-{
-	return FigGfxInfo.DrawClr;
-}
-color CCircle::getfillcolor() const
-{
-	return FigGfxInfo.FillClr;
 }

@@ -3,6 +3,8 @@
 #include "CSquare.h"
 #define r2  1.4142135623731
 #include <iostream>
+#include <fstream>
+
 CSquare::CSquare(Point P1, GfxInfo FigureGfxInfo) : CFigure(FigureGfxInfo)
 {
 	Center = P1;
@@ -22,9 +24,26 @@ Point CSquare::getCenter(Point& center) const {
 	center.y = Center.y;
 	return center;
 }
-void CSquare::Save(ofstream& OutFile)
+void CSquare::Save(ofstream& out)
 {
-	cout << "Square" << "  " << "  " << Center.x << "  " << Center.y << "  " << endl;
+	out << "SQUARE\t" << getID() << "\t" << Center.x << "\t" << Center.y << "\t"
+		<< getdrawcolor << "\t" << getfillcolor << "\t" << endl;
+
+}
+void CSquare::Load(ifstream& Infile)
+{
+	string Drawcolor, Fillcolor;
+	Infile >> ID >> Center.x >> Center.y >> Drawcolor >> Fillcolor;
+	FigGfxInfo.DrawClr = getdrawcolor();
+	if (Fillcolor == "No fill")
+		FigGfxInfo.isFilled = false;
+	else
+	{
+		FigGfxInfo.FillClr = getdrawcolor();
+		FigGfxInfo.isFilled = true;
+	}
+	Center.x = Center.x;
+	Center.y = Center.y;
 }
 void CSquare::MoveTo(Point destination) {
 	Point Center;

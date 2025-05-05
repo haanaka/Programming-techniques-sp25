@@ -129,6 +129,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ActionCopyOrCut.cpp" />
+    <ClCompile Include="ActionSwitchToDrawMode.cpp" />
     <ClCompile Include="ActionSwitchToPlayMode.cpp" />
     <ClCompile Include="Actions\ActionPaste.cpp" />
     <ClCompile Include="Actions\AddCircAction.cpp" />
@@ -186,11 +187,13 @@
     <ClCompile Include="GUI\Input.cpp" />
     <ClCompile Include="GUI\Output.cpp" />
     <ClCompile Include="ApplicationManager.cpp" />
+    <ClCompile Include="Actions\LoadAction.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Actions\SAVE.cpp" />
     <ClCompile Include="Rotate.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ActionSwitchToDrawMode.h" />
     <ClInclude Include="ActionSwitchToPlayMode.h" />
     <ClInclude Include="Actions\ActionCopyOrCut.h" />
     <ClInclude Include="Actions\ActionPaste.h" />
@@ -237,6 +240,7 @@
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="Actions\SAVE.h" />
+    <ClInclude Include="Actions\LoadAction.h" />
     <ClInclude Include="Rotate.h" />
   </ItemGroup>
   <ItemGroup>

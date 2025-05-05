@@ -11,10 +11,6 @@ public:
 	void ReadActionParameters();
 
 	void Execute();
-
-	void Execute1();
-
-
 };
 
 #endif 

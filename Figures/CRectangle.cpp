@@ -1,6 +1,9 @@
 #include "CRectangle.h"
 #include "../ApplicationManager.h"
 #include "../GUI/Output.h"
+#include <iostream>
+#include <fstream>
+
 
 CRectangle::CRectangle(Point P1, Point P2, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)
 {
@@ -55,7 +58,26 @@ void CRectangle::shiftTo(int x, int y)
 int CRectangle::getType() {
 	return 5; // 5 for rectangle
 }
-void CRectangle::Rotation()
+void CRectangle::Save(ofstream& out)
+{
+	out << "RECT\t" << getID() << "\t" << Corner1.x << "\t" << Corner1.y << "\t" << Corner2.x<<"\t" << Corner2.y << "\t"
+		<< getdrawcolor << "\t" << getfillcolor << "\t" << endl;
+
+}
+void CRectangle::Load(ifstream& Infile)
+{
+	string Drawcolor, Fillcolor;
+	Infile >> ID >> Corner1.x >> Corner1.y >> Corner2.x >> Corner2.y >> Drawcolor >> Fillcolor;
+	FigGfxInfo.DrawClr = getdrawcolor();
+	if (Fillcolor == "No fill")
+		FigGfxInfo.isFilled = false;
+	else
+	{
+		FigGfxInfo.FillClr = getdrawcolor();
+		FigGfxInfo.isFilled = true;
+	}
+}
+bool CRectangle::Rotation()
 {
 	Point M; //point M will be the middle of the selected figure
 	M.y = (Corner1.y + Corner2.y) / 2; //since rectangle is symetrical you get the y coordinate of the middle point by dividing the sum of 2 CORNERS that are on the same VERTICAL LINE by 2
