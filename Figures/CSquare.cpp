@@ -18,7 +18,7 @@ bool CSquare::IsPointInside(int x, int y) const
 	return(x >= Center.x - 37.5 &&x <= Center.x + 37.5 &&y >= Center.y - 37.5 &&y <= Center.y + 37.5) ;
 
 }
-void CSquare::Rotation(){}
+bool CSquare::Rotation(){}
 Point CSquare::getCenter(Point& center) const {
 	center.x = Center.x;
 	center.y = Center.y;
@@ -73,11 +73,11 @@ CFigure* CSquare::Clone() const
 {
 	return new CSquare(*this);
 }
-color CSquare::getdrawcolor() const
+color& CSquare::getdrawcolor() const
 {
 	return FigGfxInfo.DrawClr;
 }
-color CSquare::getfillcolor() const
+color& CSquare::getfillcolor() const
 {
 	return FigGfxInfo.FillClr;
 }

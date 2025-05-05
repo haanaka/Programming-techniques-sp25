@@ -17,7 +17,6 @@ void CCircle::Draw(Output* pOut) const
 }
 
 float DIFF(Point p1, Point p2);
-void CCircle::Rotation(){}
 bool CCircle::IsPointInside(int x, int y) const
 {
 	// Check if the point (x, y) is inside the circle
@@ -40,7 +39,7 @@ bool CCircle::Rotation()
 {
 	return false;
 }
-color CCircle::getcolor() const
+color& CCircle::getcolor() const
 {
 	if (FigGfxInfo.isFilled)
 	return FigGfxInfo.FillClr;

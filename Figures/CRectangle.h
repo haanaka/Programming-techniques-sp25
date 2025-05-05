@@ -19,13 +19,13 @@ public:
 
 	int getType();
 
-	void Rotation();
+	bool Rotation();
 	
 	void Save(ofstream& out);
 	void Load(ifstream& Infile);
 
 	CFigure* Clone() const override;
-	virtual color getdrawcolor() const;
-	virtual color getfillcolor()const ;
+	virtual color& getdrawcolor() const;
+	virtual color& getfillcolor()const ;
 };
 #endif

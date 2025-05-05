@@ -16,12 +16,12 @@ public:
 	void shiftTo(int x, int y);
 	int getType();
 	CFigure* Clone() const override;
-	void Rotation(); //Function belonging to the rotate class
+	bool Rotation(); //Function belonging to the rotate class
 	void setisrotated(bool r);
 
 
-	color getdrawcolor() const;
-	color getfillcolor() const;
+	color& getdrawcolor() const;
+	color& getfillcolor() const;
 
 };
 

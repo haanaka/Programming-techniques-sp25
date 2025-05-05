@@ -14,9 +14,9 @@ public:
 	 void MoveTo(Point destination);
 	 void shiftTo(int x, int y);
 	 int getType();
-	 void Rotation(); //Function belonging to the rotate class
-	 color getdrawcolor() const;
-	 color getfillcolor() const;
+	 bool Rotation(); //Function belonging to the rotate class
+	 color& getdrawcolor() const;
+	 color& getfillcolor() const;
 	 CFigure* Clone() const override;
 };
 

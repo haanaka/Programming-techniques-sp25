@@ -96,7 +96,7 @@ static Point RotatePoint90(const Point& P, const Point& C)
 	return R;
 }
 
-void CTriangle::Rotation()
+bool CTriangle::Rotation()
 {
 	//  Compute the triangle’s center
 	Point center;
@@ -128,15 +128,15 @@ void CTriangle::Rotation()
 	P1 = pts[0];
 	P2 = pts[1];
 	P3 = pts[2];
-
+	return true;
 }
 CFigure* CTriangle::Clone() const
 {
 	return new CTriangle(*this);
 }
-color CTriangle::getdrawcolor() const {
+color& CTriangle::getdrawcolor() const {
 	return FigGfxInfo.DrawClr;
 }
-color CTriangle::getfillcolor() const {
+color& CTriangle::getfillcolor() const {
 	return FigGfxInfo.FillClr;
 }
