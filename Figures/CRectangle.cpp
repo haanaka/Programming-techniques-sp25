@@ -2,6 +2,8 @@
 #include "../ApplicationManager.h"
 #include "../GUI/Output.h"
 #include <iostream>
+#include <fstream>
+
 
 CRectangle::CRectangle(Point P1, Point P2, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)
 {

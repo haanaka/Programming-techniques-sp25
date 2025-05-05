@@ -2,6 +2,7 @@
 #include "../ApplicationManager.h"
 #include "../GUI/Output.h"
 #include <iostream>
+#include <fstream>
 
 CCircle::CCircle(Point Point1,Point Point2, int r, GfxInfo FigureGfxInfo) : CFigure(FigureGfxInfo)
 {
@@ -33,7 +34,7 @@ void CCircle::Save(ofstream& out)
 	else
 		fillcolor = "no fill";
 	out << "CIRC\t" << getID() << "\t" << Center.x << "\t" << Center.y << "\t" 
-		<< Radius << "\t" << getcolor() << "\t" << fillcolor<< endl;
+		<< Radius << "\t" << getcolor << "\t" << fillcolor<< endl;
 }
 bool CCircle::Rotation()
 {
@@ -58,6 +59,24 @@ Point CCircle::getCenter(Point& center) const
 	center.x = Center.x;
 	center.y = Center.y;
 	return center;
+}
+void CCircle::Load(ifstream& Infile)
+{
+	string Drawcolor, Fillcolor;
+
+	Infile >> ID >> Center.x >> Center.y >> Radius >> Drawcolor >> Fillcolor;
+
+	FigGfxInfo.DrawClr = getcolor;
+	if (Fillcolor == "No fill")
+		FigGfxInfo.isFilled = false;
+	else
+	{
+		FigGfxInfo.FillClr = getcolor;
+		FigGfxInfo.isFilled = true;
+	}
+	Center.x = Center.x;
+	Center.y= Center.y;
+	Radius = Radius;
 }
 void CCircle::MoveTo(Point destination)
 {

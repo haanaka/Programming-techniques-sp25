@@ -5,6 +5,8 @@
 #define r3 1.7320508075689
 #include <iostream>
 #include <string>
+#include <fstream>
+
 
 CHexagon::CHexagon(Point C, GfxInfo shapeGfx) : CFigure(shapeGfx)
 {

@@ -3,6 +3,8 @@
 #include "CSquare.h"
 #define r2  1.4142135623731
 #include <iostream>
+#include <fstream>
+
 CSquare::CSquare(Point P1, GfxInfo FigureGfxInfo) : CFigure(FigureGfxInfo)
 {
 	Center = P1;
