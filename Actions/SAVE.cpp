@@ -3,6 +3,9 @@
 #include "..\GUI\input.h"
 #include "..\GUI\Output.h"
 #include <fstream>
+#include <iostream>
+
+
 
 SAVEAction::SAVEAction(ApplicationManager* pApp) : Action(pApp)
 {
@@ -26,3 +29,5 @@ void SAVEAction::Execute()
 	pOut->PrintMessage("File saved");
 	file.close();
 }
+
+

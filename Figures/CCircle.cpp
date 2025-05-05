@@ -2,6 +2,7 @@
 #include "../ApplicationManager.h"
 #include "../GUI/Output.h"
 #include <iostream>
+
 CCircle::CCircle(Point Point1,Point Point2, int r, GfxInfo FigureGfxInfo) : CFigure(FigureGfxInfo)
 {
 	P1 = Point1;
@@ -22,13 +23,31 @@ bool CCircle::IsPointInside(int x, int y) const
 	int dy = y - Center.y;
 	return (dx * dx + dy * dy <= Radius * Radius);
 }
-void CCircle::Save(ofstream& OutFile)
+void CCircle::Save(ofstream& out)
 {
-	cout << "Circle " << getID() << "  " << Center.x << "  " << Center.y << "  " << Radius << "  " << endl;
+	string fillcolor;
+	if (FigGfxInfo.isFilled)
+		fillcolor = getcolorname(FigGfxInfo.FillClr);
+	else
+		fillcolor = "no fill";
+	out << "CIRC\t" << getID() << "\t" << Center.x << "\t" << Center.y << "\t" << Radius << "\t" << getcolor << "\t" << fillcolor<< endl;
 }
 bool CCircle::Rotation()
 {
 	return false;
+}
+color CCircle::getcolor() const
+{
+	if (FigGfxInfo.isFilled)
+	return FigGfxInfo.FillClr;
+}
+bool CCircle::isfilled() const
+{
+	return FigGfxInfo.isFilled;
+}
+string CCircle::getcolorname(color c) const
+{
+	return string();
 }
 Point CCircle::getCenter(Point& center) const
 {

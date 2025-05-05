@@ -4,6 +4,8 @@
 #include "..\defs.h"
 #include "..\GUI\Output.h"
 
+
+
 //Base class for all figures
 class CFigure
 {
@@ -31,6 +33,8 @@ public:
 	virtual bool Rotation() = 0;//Function belonging to the rotate class
 	int getID()const;
 	void setID(int id);
+	virtual string getcolor(color c)const;
+	virtual color getstringcolor(string c)const;
 	//check if a point is inside the figure
 	///The following functions should be supported by the figure class
 	///It should be overridden by each inherited figure
