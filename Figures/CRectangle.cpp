@@ -90,6 +90,7 @@ bool CRectangle::Rotation()
 	Corner1.y = (M.y + sidelx / 2);
 	Corner2.x = (M.x + sidely / 2);
 	Corner2.y = (M.y - sidelx / 2);
+	return true;
 }
 CFigure* CRectangle::Clone() const
 {
@@ -101,3 +102,10 @@ CFigure* CRectangle::Clone() const
 color& CRectangle::getfillcolor()const {
 	return  FigGfxInfo.FillClr;
 }*/
+GfxInfo CRectangle::getgfxinfo() {
+	return FigGfxInfo;
+}
+bool CRectangle::isSelected() const
+{
+	return Selected;
+}

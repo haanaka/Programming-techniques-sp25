@@ -212,7 +212,6 @@ ActionType Input::GetUserAction() const
 			case ITM_SAVE:return SAVE;
 			case ITM_LOAD: return LOAD;
 			case ITM_SWITCH_TO_PLAY:return SWITCH_TO_PLAY;
-			case ITM_COLOR: return COLOUR;
 			default: return EMPTY;  //A click on empty place in desgin toolbar
 			}
 		}

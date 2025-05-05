@@ -12,12 +12,13 @@ class CFigure
 protected:
 	int ID;		//Each figure has an ID
 	bool Selected;	//true if the figure is selected.
+	bool isrotated = false; //true if the figure is rotated
 	GfxInfo FigGfxInfo;	//Figure graphics info
-
 	
 	/// Add more parameters if needed.
 
 public:
+
 	CFigure(GfxInfo FigureGfxInfo);
 
 	void SetSelected(bool s);	//select/unselect the figure
@@ -30,6 +31,9 @@ public:
 	void ChngFillClr(color Fclr);	//changes the figure's filling color
 	int getID() const;
 	void setID(int id);
+	void setisrotated(bool r); //set the figure to be rotated
+	virtual GfxInfo getgfxinfo() = 0; //get the figure's graphics info
+	virtual bool isSelected() const = 0; //check if the figure is filled
 	virtual bool IsPointInside(int x, int y) const=0;
 	virtual void MoveTo(Point destination)=0;
 	virtual Point getCenter(Point& center) const = 0; 

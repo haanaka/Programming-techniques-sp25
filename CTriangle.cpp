@@ -140,3 +140,9 @@ CFigure* CTriangle::Clone() const
 color& CTriangle::getfillcolor() const {
 	return FigGfxInfo.FillClr;
 }*/
+GfxInfo CTriangle::getgfxinfo() {
+	return FigGfxInfo;
+}
+bool CTriangle::isSelected() const {
+	return Selected;
+}

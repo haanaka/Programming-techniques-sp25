@@ -23,7 +23,7 @@ public:
 	void ClearALl() const; //Clear all the drawing 
 	void DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriGfxInfo, bool selected = false) const; //Draw a triangle
 	void Drawsquare(Point P1,GfxInfo SqrGfxInfo, bool selected) const; //Draw a square
-	void DrawHexagon(Point P, GfxInfo HexGfxInfo, bool selected) const; //Draw a hexagon
+	void DrawHexagon(Point P, GfxInfo HexGfxInfo, bool selected, bool normal) const; //Draw a hexagon
 	void changecolor(color c) const; //Change the color of the figure
 	
 	///Make similar functions for drawing all other figure types.

@@ -18,6 +18,8 @@ public:
 	 //color& getdrawcolor() const;
 	 //color& getfillcolor() const;
 	 CFigure* Clone() const override;
+	 GfxInfo getgfxinfo();
+	 bool isSelected() const;
 };
 
 

@@ -108,3 +108,11 @@ CFigure* CCircle::Clone() const
 {
 	return new CCircle(*this); // Create a new circle with the same properties
 }
+GfxInfo CCircle::getgfxinfo()
+{
+	return FigGfxInfo;
+}
+bool CCircle::isSelected() const
+{
+	return Selected;
+}

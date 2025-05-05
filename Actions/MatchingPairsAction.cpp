@@ -45,9 +45,9 @@ void MatchingPairsAction::Execute()
 	if (!FirstFigure && !SecondFigure)
 		return;
   
-	bool isMatch = (FirstFigure->getType() == SecondFigure->getType()) ||
-		(FirstFigure->getdrawcolor() == SecondFigure->getdrawcolor()) ||
-		(FirstFigure->getfillcolor() == SecondFigure->getfillcolor());
+	bool isMatch = (FirstFigure->getType() == SecondFigure->getType());
+		/*||(FirstFigure->getdrawcolor() == SecondFigure->getdrawcolor()) ||
+		(FirstFigure->getfillcolor() == SecondFigure->getfillcolor());*/
 	if (isMatch) {
 		score++;
 		pOut->PrintMessage(" Excellent Correct! Score:" + to_string(score));

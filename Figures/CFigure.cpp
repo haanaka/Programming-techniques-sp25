@@ -22,6 +22,10 @@ void CFigure::ChngFillClr(color Fclr)
 	FigGfxInfo.isFilled = true;
 	FigGfxInfo.FillClr = Fclr; 
 }
+void CFigure::setisrotated(bool r)
+{
+	isrotated = !isrotated;
+}
 int CFigure::getID() const
 {
 	return ID;

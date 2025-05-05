@@ -84,3 +84,11 @@ color& CSquare::getfillcolor() const
 {
 	return FigGfxInfo.FillClr;
 }*/
+GfxInfo CSquare::getgfxinfo()
+{
+	return FigGfxInfo;
+}
+bool CSquare::isSelected() const
+{
+	return Selected;
+}

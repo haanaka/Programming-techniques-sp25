@@ -16,6 +16,8 @@ public:
 	void Load(ifstream& Infile);
 	bool Rotation(); //Function belonging to the rotate class
 	CFigure* Clone() const override;
+	GfxInfo getgfxinfo();
+	bool isSelected() const;
 	//color& getdrawcolor() const;
 	//color& getfillcolor() const;
 };

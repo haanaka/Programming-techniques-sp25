@@ -1,6 +1,6 @@
 #include "Output.h"
 #define r3 1.7320508075689
-
+#define PI 3.14159265359
 Output::Output()
 {
 	//Initialize user interface parameters
@@ -89,7 +89,6 @@ void Output::CreateDrawToolBar() const
 	MenuItemImages[ITM_TRI] = "images\\MenuItems\\Menu_triangle.jpg";
 	MenuItemImages[ITM_HEXA] = "images\\MenuItems\\Menu_hexagon.jpg";
 	MenuItemImages[ITM_CIRC] = "images\\MenuItems\\Menu_circle.jpg";
-	MenuItemImages[ITM_COLOR] = "images\\MenuItems\\Menu_COLOR.jpg";
 	MenuItemImages[ITM_SELECT] = "images\\MenuItems\\Menu_select.jpg";
 	MenuItemImages[ITM_SWAP] = "images\\MenuItems\\Menu_swap.jpg";
 	MenuItemImages[ITM_ROTATE] = "images\\MenuItems\\Menu_rotate.jpg";
@@ -304,24 +303,49 @@ void Output::Drawsquare(Point P1, GfxInfo SqrGfxInfo, bool selected) const
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
-void Output::DrawHexagon(Point P, GfxInfo HexGfxInfo, bool selected) const
+void Output::DrawHexagon(Point P, GfxInfo HexGfxInfo, bool selected,bool normal) const
 {
 	int *PX, *PY;
 	PX = new int[6];
 	PY = new int[6];
+	if (normal == 0) {
+		/*PX[0] = P.x + 100;    PY[0] = P.y;
 
-	PX[0] = P.x+100;    PY[0] = P.y;
+		PX[1] = P.x + 50;	PY[1] = P.y + 50 * r3;
 
-	PX[1] = P.x + 50;	PY[1] = P.y + 50 * r3;
+		PX[2] = P.x - 50;     PY[2] = P.y + 50 * r3;
 
-	PX[2] = P.x-50;     PY[2] = P.y + 50 * r3;
-	 
-	PX[3] = P.x-100;    PY[3] = P.y;
+		PX[3] = P.x - 100;    PY[3] = P.y;
 
-	PX[4] = P.x-50;     PY[4] = P.y - 50 * r3;
+		PX[4] = P.x - 50;     PY[4] = P.y - 50 * r3;
 
-	PX[5] = P.x+50;     PY[5] = P.y - 50 * r3;
+		PX[5] = P.x + 50;     PY[5] = P.y - 50 * r3;*/
+		for (int i = 0; i < 6; i++)
+		{
+			PX[i] = P.x + 100 * cos(i*PI/3);
+			PY[i] = P.y + 100 * sin(i * PI / 3);
+		}
+	}
+	else if (normal == 1) //if the figure is rotated
+	{
+		for (int i = 0; i < 6; i++)
+		{
+			PX[i] = P.x + 100 * cos(i * PI / 3+PI/2);
+			PY[i] = P.y + 100 * sin(i * PI / 3+PI/2);
+		}
+		/*PX[0] = P.x;               PY[0] = P.y - 100;
 
+		PX[1] = P.x + 50 * r3;  	PY[1] = P.y - 50;
+
+		PX[2] = P.x + 50 * r3;     PY[2] = P.y + 50;
+
+		PX[3] = P.x;               PY[3] = P.y + 100;
+
+		PX[4] = P.x - 50 * r3;     PY[4] = P.y + 50;
+
+		PX[5] = P.x - 50 * r3;     PY[5] = P.y - 50;*/
+		
+	}
 	color DrawingClr;
 	if (selected)
 		DrawingClr = UI.HighlightColor; //Figure should be drawn highlighted

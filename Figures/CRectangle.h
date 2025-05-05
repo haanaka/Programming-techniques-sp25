@@ -25,6 +25,8 @@ public:
 	void Load(ifstream& Infile);
 
 	CFigure* Clone() const override;
+	GfxInfo getgfxinfo();
+	bool isSelected() const;
 	//virtual color& getdrawcolor() const;
 	//virtual color& getfillcolor()const ;
 };

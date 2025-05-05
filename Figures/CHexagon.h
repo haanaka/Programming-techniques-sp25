@@ -1,10 +1,11 @@
 #pragma once
 #include "CFigure.h"
+#include "../ApplicationManager.h"
+#include "../DEFS.h"
 class CHexagon : public CFigure
 {
 private:
 	Point Center; // Six points of the hexagon
-	bool isrotated;
 public:
 	CHexagon(Point center, GfxInfo FigureGfxInfo);
 	virtual void Draw(Output* pOut) const override; // Draws the hexagon
@@ -17,6 +18,8 @@ public:
 	int getType();
 	CFigure* Clone() const override;
 	bool Rotation(); //Function belonging to the rotate class
+	GfxInfo getgfxinfo();
+	bool isSelected() const;
 	void setisrotated(bool r);
 
 

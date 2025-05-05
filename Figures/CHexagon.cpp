@@ -14,7 +14,10 @@ CHexagon::CHexagon(Point C, GfxInfo shapeGfx) : CFigure(shapeGfx)
 }
 void CHexagon::Draw(Output* pOut) const
 {
-		pOut->DrawHexagon(Center, FigGfxInfo, Selected);
+	if (isrotated==true)
+		pOut->DrawHexagon(Center, FigGfxInfo, Selected,1);
+	else
+		pOut->DrawHexagon(Center, FigGfxInfo, Selected, 0);
 }
 
 double Abs(double x)
@@ -131,7 +134,7 @@ color& CHexagon::getfillcolor() const
 
 bool CHexagon::Rotation()
 {
-	int* PX, * PY;
+	/*int* PX, * PY;
 	PX = new int[6];
 	PY = new int[6];
 
@@ -145,6 +148,13 @@ bool CHexagon::Rotation()
 
 	PX[4] = Center.x - 50 * r3;     PY[4] = Center.y + 50;
 
-	PX[5] = Center.x - 50 * r3;     PY[5] = Center.y - 50;
-	
+	PX[5] = Center.x - 50 * r3;     PY[5] = Center.y - 50;*/
+	return true;
+}
+GfxInfo CHexagon::getgfxinfo() {
+	return FigGfxInfo;
+}
+bool CHexagon::isSelected() const
+{
+	return Selected;
 }

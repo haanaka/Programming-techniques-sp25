@@ -18,6 +18,8 @@ public:
 	void shiftTo(int x, int y);
 	int getType();
 	CFigure* Clone() const override;
+	GfxInfo getgfxinfo();
+	bool isSelected() const;
 	Point getCenter(Point& center) const;
 	void Load(ifstream& Infile);
 	bool Rotation(); //Function belonging to the rotate class

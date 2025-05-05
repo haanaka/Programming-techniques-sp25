@@ -39,20 +39,23 @@ void Rotate::Execute()
     }
     if (RotatedFigure != NULL)
     {
-       
+        if (RotatedFigure->getType() == 3)
+        {
+			RotatedFigure->setisrotated(true);
+            pOut->DrawHexagon(RotatedFigure->getCenter(RotatedFigure->getCenter(Point())), RotatedFigure->getgfxinfo(), RotatedFigure->isSelected(), 1);
+        }
+
           bool is= RotatedFigure->Rotation();
 		  if (is)
 			  pOut->PrintMessage("Figure rotated successfully.");
 		  else
 			  pOut->PrintMessage("Figure cannot be rotated.");
-          pManager->UpdateInterface();
        
     }
     else
     {
         pOut->PrintMessage("Select exactly one figure to rotate.");
     }
-        pManager->GetInput()->GetPointClicked(x, y); // Wait for user to click before clearing the message
 		pManager->UpdateInterface();
 		
 }
