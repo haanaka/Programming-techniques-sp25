@@ -20,7 +20,7 @@ public:
 	CFigure* Clone() const override;
 	Point getCenter(Point& center) const;
 	void Load(ifstream& Infile);
-	bool Rotation(); //Function belonging to the rotate class
+	void Rotation(); //Function belonging to the rotate class
 	color getdrawcolor() const;
 	color getfillcolor() const;
 };

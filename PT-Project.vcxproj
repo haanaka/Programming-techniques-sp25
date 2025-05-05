@@ -129,6 +129,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ActionCopyOrCut.cpp" />
+    <ClCompile Include="ActionSwitchToPlayMode.cpp" />
     <ClCompile Include="Actions\ActionPaste.cpp" />
     <ClCompile Include="Actions\AddCircAction.cpp" />
     <ClCompile Include="Actions\AddHexaAction.cpp" />
@@ -189,6 +190,7 @@
     <ClCompile Include="Rotate.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ActionSwitchToPlayMode.h" />
     <ClInclude Include="Actions\ActionCopyOrCut.h" />
     <ClInclude Include="Actions\ActionPaste.h" />
     <ClInclude Include="Actions\AddCircAction.h" />

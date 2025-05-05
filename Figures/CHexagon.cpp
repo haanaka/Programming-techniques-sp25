@@ -110,7 +110,7 @@ color CHexagon::getfillcolor() const
 {
 	return FigGfxInfo.FillClr;
 }
-}
+
 void CHexagon::Rotation()
 {
 	int* PX, * PY;

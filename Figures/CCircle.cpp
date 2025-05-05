@@ -14,7 +14,7 @@ void CCircle::Draw(Output* pOut) const
 }
 
 float DIFF(Point p1, Point p2);
-
+void CCircle::Rotation(){}
 bool CCircle::IsPointInside(int x, int y) const
 {
 	// Check if the point (x, y) is inside the circle
@@ -23,10 +23,7 @@ bool CCircle::IsPointInside(int x, int y) const
 	float R = DIFF(P1, P2);
 	return (dx * dx + dy * dy <= R * R);
 }
-bool CCircle::Rotation()
-{
-	return false;
-}
+
 Point CCircle::getCenter(Point& center) const
 {
 	center.x = Center.x;

@@ -13,7 +13,7 @@ public:
 	int getType();
 	Point getCenter(Point& center) const;
 	void Save(ofstream& OutFile);
-	bool Rotation(); //Function belonging to the rotate class
+	void Rotation(); //Function belonging to the rotate class
 	CFigure* Clone() const override;
 	color getdrawcolor() const;
 	color getfillcolor() const;

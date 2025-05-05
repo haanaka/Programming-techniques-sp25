@@ -38,4 +38,3 @@ color CFigure::getfillcolor()const {
 	return FigGfxInfo.FillClr;
 }
 CFigure* CFigure::Clone() const { return nullptr; } // Default implementation
-void CFigure::Rotation() {} // Default implementation

@@ -55,7 +55,7 @@ void CRectangle::shiftTo(int x, int y)
 int CRectangle::getType() {
 	return 5; // 5 for rectangle
 }
-bool CRectangle::Rotation()
+void CRectangle::Rotation()
 {
 	Point M; //point M will be the middle of the selected figure
 	M.y = (Corner1.y + Corner2.y) / 2; //since rectangle is symetrical you get the y coordinate of the middle point by dividing the sum of 2 CORNERS that are on the same VERTICAL LINE by 2
@@ -68,7 +68,6 @@ bool CRectangle::Rotation()
 	Corner1.y = (M.y + sidelx) / 2;
 	Corner2.x = (M.x + sidely) / 2;
 	Corner2.y = (M.y - sidelx) / 2;
-	return true;
 }
 CFigure* CRectangle::Clone() const
 {

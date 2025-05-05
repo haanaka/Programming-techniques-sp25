@@ -15,7 +15,6 @@ public:
 	void MoveTo(Point destination);
 	void shiftTo(int x, int y);
 	int getType();
-	bool Rotation(); //Function belonging to the rotate class
 	CFigure* Clone() const override;
 	void Rotation(); //Function belonging to the rotate class
 	void setisrotated(bool r);

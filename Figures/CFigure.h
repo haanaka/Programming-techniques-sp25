@@ -31,13 +31,11 @@ public:
 	virtual bool IsPointInside(int x, int y) const=0;
 	virtual void MoveTo(Point destination)=0;
 	virtual Point getCenter(Point& center) const = 0; 
-	virtual bool Rotation() = 0;
+	virtual void Rotation()=0;
 	virtual color getdrawcolor() const = 0;
 	virtual color getfillcolor()const = 0;
 	//Function belonging to the rotate class
-	virtual void Rotation()=0;//Function belonging to the rotate class
-	int getID()const;
-	void setID(int id);
+	
 	//check if a point is inside the figure
 	///The following functions should be supported by the figure class
 	///It should be overridden by each inherited figure

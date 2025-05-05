@@ -131,13 +131,13 @@ void ApplicationManager::deleteClipboard() {
 	UpdateInterface();
 }
 
-void ApplicationManager::Saveall(ofstream& out)
+/*void ApplicationManager::Saveall(ofstream& out)
 {
 	for (int i = 0; i < FigCount; i++)
 	{
 		FigList[i]->Save(out);
 	}
-}
+}*/
 
 void ApplicationManager::clearallfigure()
 {
