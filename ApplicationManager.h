@@ -16,7 +16,8 @@ private:
 	CFigure* FigList[MaxFigCount];	//List of all figures (Array of pointers)
 	
 	CFigure* SelectedFig; //Pointer to the selected figure
-
+	CFigure* BackupList[MaxFigCount]; //Backup list of figures
+	int BackupCount; //Count of backup figures	
 	//Pointers to Input and Output classes
 	Input *pIn;
 	Output *pOut;
@@ -48,6 +49,16 @@ public:
 	CFigure* getSelectedFigure();
 	bool getCopyOrCut();
 	CFigure* GetClipboard();
+
+	void SwitchToPlayMode();
+
+	void SwitchToDrawMode();
+
+	void SaveCurrentGraph();
+
+	void RestoreSavedGraph();
+
+	void ClearGraph();
 
 	void SetSelectedFigure(CFigure* c);
 	CFigure* selectFigure(int x, int y); //Selects a figure given a point inside the figure

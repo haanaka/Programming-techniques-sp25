@@ -4,7 +4,7 @@ class ActionSwitchToPlayMode : public Action
 {
 public:
 	ActionSwitchToPlayMode(ApplicationManager* pApp);
-	void ReadActionParameters();
-	void Execute();
+	virtual void ReadActionParameters() override;
+	virtual void Execute() override;
 };
 

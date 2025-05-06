@@ -201,6 +201,45 @@ bool ApplicationManager::getCopyOrCut() {
 CFigure* ApplicationManager::GetClipboard() {
 	return Clipboard;
 }
+
+void ApplicationManager::SwitchToPlayMode()
+{
+	SaveCurrentGraph();
+	ClearGraph();
+	GetOutput()->CreatePlayToolBar();
+	GetOutput()->PrintMessage("Switched to Play Mode");
+}
+
+void ApplicationManager::SwitchToDrawMode()
+{
+	SaveCurrentGraph();
+	ClearGraph();
+	GetOutput()->CreateDrawToolBar();
+	GetOutput()->PrintMessage("Switched to Draw Mode");
+	RestoreSavedGraph();
+}
+void ApplicationManager::SaveCurrentGraph()
+{
+	BackupCount = FigCount;
+	for (int i = 0; i < FigCount; i++)
+		BackupList[i] = FigList[i];
+}
+void ApplicationManager::RestoreSavedGraph()
+{
+	for (int i = 0; i < BackupCount; i++)
+		FigList[i] = BackupList[i];
+	FigCount = BackupCount;
+	UpdateInterface();  // redraw
+}
+void ApplicationManager::ClearGraph()
+{
+	GetOutput()->ClearDrawArea();
+	for (int i = 0; i < FigCount; i++)
+		delete FigList[i];
+	FigCount = 0;
+}
+
+
 void ApplicationManager::SetSelectedFigure(CFigure* c) { SelectedFig = c; }
 CFigure* ApplicationManager::selectFigure(int x, int y) {
 
